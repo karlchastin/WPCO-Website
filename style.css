@@ -1,0 +1,79 @@
+:root {
+  --bg-color: #050d17;
+  --line-color: #121923;
+  --text-primary: #e2e8f0;
+  --text-secondary: #94a3b8;
+  --accent: #3b82f6;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+#topo-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+}
+
+main {
+  position: relative;
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.logo {
+  width: 240px;
+  height: 240px;
+  object-fit: contain;
+  margin-bottom: 2rem;
+}
+
+h1 {
+  font-family: 'Arial Black', Arial, sans-serif;
+  color: white;
+  font-size: min(3.5vw, 3rem);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  white-space: nowrap;
+}
+
+.copyright {
+  position: absolute;
+  bottom: 2rem;
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: bold;
+  letter-spacing: 1px;
+}
