@@ -15,99 +15,13 @@
       const fpPromise = import('https://openfpcdn.io/fingerprintjs/v4')
         .then(FingerprintJS => FingerprintJS.load())
     </script>
-    <style>
-        .verify-container {
-            background: rgba(18, 25, 35, 0.7);
-            border: 1px solid rgba(45, 79, 121, 0.5);
-            border-radius: 16px;
-            padding: 3rem;
-            max-width: 500px;
-            width: 90%;
-            text-align: center;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .verify-container h2 {
-            font-family: 'Arial Black', Arial, sans-serif;
-            color: white;
-            font-size: 2rem;
-            letter-spacing: 0.05em;
-            margin-bottom: 1rem;
-        }
-
-        .verify-container p {
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            line-height: 1.6;
-        }
-
-        .status-box {
-            background: rgba(5, 13, 23, 0.8);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 1rem;
-            border-radius: 8px;
-            width: 100%;
-            margin-bottom: 2rem;
-            font-family: monospace;
-            color: #3b82f6;
-        }
-
-        .btn {
-            background: #2d4f79;
-            color: white;
-            border: none;
-            padding: 12px 32px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            font-family: 'Inter', sans-serif;
-        }
-
-        .btn:hover {
-            background: #3a6296;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(45, 79, 121, 0.4);
-        }
-
-        .btn:disabled {
-            background: #1a2a3f;
-            color: #64748b;
-            cursor: not-allowed;
-            transform: none;
-            box-shadow: none;
-        }
-
-        .loader {
-            display: none;
-            width: 24px;
-            height: 24px;
-            border: 3px solid rgba(255,255,255,0.3);
-            border-radius: 50%;
-            border-top-color: white;
-            animation: spin 1s ease-in-out infinite;
-            margin-bottom: 1rem;
-        }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-        
-        .success-text { color: #22c55e !important; }
-        .error-text { color: #ef4444 !important; }
-    </style>
 </head>
 <body>
     <!-- Assuming topography background is drawn by main.js in the root, we'll just include it -->
     <canvas id="topo-bg"></canvas>
 
     <main>
-        <div class="verify-container">
+        <div class="glass-container">
             <img src="../assets/logo.png" alt="WPCO Logo" style="width: 80px; height: 80px; margin-bottom: 1.5rem;" onerror="this.style.display='none'">
             <h2>Verification</h2>
             <p>To keep our community safe, please complete this quick verification to ensure you are not using an alternate account.</p>

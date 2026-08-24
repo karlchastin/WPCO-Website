@@ -6,49 +6,43 @@
     <title>Terms of Service - WPCO</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <style>
-        body { background-color: #050d17; color: #f4f4f5; font-family: 'Inter', sans-serif; line-height: 1.6; padding: 40px; max-width: 800px; margin: 0 auto; }
-        h1, h2 { color: #ffffff; }
-        h1 { font-size: 2.5rem; margin-bottom: 20px; text-align: center; color: #3b82f6; }
-        h2 { font-size: 1.5rem; margin-top: 30px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
-        a { color: #3b82f6; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        .container { background: rgba(255, 255, 255, 0.03); padding: 40px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); }
-    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Terms of Service</h1>
+    <canvas id="topo-bg"></canvas>
+    <main>
+        <div class="glass-container legal-container">
+            <img src="assets/logo.webp" alt="WPCO Logo" style="width: 80px; height: 80px; margin-bottom: 1.5rem;" onerror="this.style.display='none'">
+            <div class="legal-content">
+                <h1>TERMS OF SERVICE</h1>
         <p><strong>Last Updated: August 2026</strong></p>
         
-        <p>Welcome to the World Peace Control Organization ("WPCO"). By accessing or using our Verification System and Discord Server, you agree to be bound by these Terms of Service.</p>
+        <p>Welcome to the World Peace Control Organization ("WPCO"). These Terms of Service ("Terms") govern your access to and use of our Verification System and associated Discord Server. By utilizing our services, you expressly agree to be bound by these Terms.</p>
 
-        <h2>1. Acceptance of Terms</h2>
-        <p>By using the WPCO Verification System, you agree to comply with these terms, as well as the official Terms of Service of Discord and Roblox. If you do not agree, you may not use our verification system or access restricted areas of our community.</p>
+        <h2>1. Acceptance and Compliance</h2>
+        <p>By interacting with the WPCO Verification System, you agree to comply with these Terms, as well as the official Terms of Service provided by Discord Inc. and Roblox Corporation. Failure to adhere to any of these agreements may result in immediate revocation of your access to our services and community.</p>
 
-        <h2>2. Account Verification</h2>
-        <p>To ensure a safe and fair environment, WPCO requires users to link their Roblox accounts using the official Roblox OAuth2 system. By authorizing our application, you grant us permission to read your public Roblox User ID and Username.</p>
+        <h2>2. Account Verification & Authorization</h2>
+        <p>WPCO employs automated systems to verify the identity and standing of its community members. By initiating the verification process and authorizing our application via official third-party integrations (e.g., Roblox OAuth2), you grant WPCO explicit permission to access necessary public account data to establish your identity within our ecosystem.</p>
 
-        <h2>3. Alternative Accounts (Alts)</h2>
-        <p>WPCO strictly monitors the use of alternative accounts to prevent abuse, ban evasion, and ranking manipulation. By using this service, you acknowledge that we utilize device fingerprinting and IP address monitoring to detect and link related accounts.</p>
+        <h2>3. Community Integrity and Account Monitoring</h2>
+        <p>To ensure a safe, fair, and secure environment, WPCO actively monitors for unauthorized access, ban evasion, and the use of secondary or alternative accounts ("alts"). You acknowledge and consent that WPCO may utilize automated security systems, telemetry analysis, and network heuristics to detect, track, and internally link accounts that violate our community standards or attempt to circumvent moderation.</p>
 
-        <h2>4. Code of Conduct</h2>
-        <p>While participating in the WPCO community, you agree to:</p>
+        <h2>4. User Conduct and Restrictions</h2>
+        <p>While utilizing WPCO services, you agree that you will not:</p>
         <ul>
-            <li>Treat all members with respect.</li>
-            <li>Abide by all rules posted within the WPCO Discord server.</li>
-            <li>Not attempt to bypass, exploit, or reverse-engineer the verification system.</li>
+            <li>Engage in conduct that disrupts, exploits, or otherwise interferes with the operation of the Verification System or the Discord server.</li>
+            <li>Attempt to reverse-engineer, bypass, or manipulate the security and telemetry systems used for account verification.</li>
+            <li>Use the services to harass, abuse, or harm other community members, or violate any established community guidelines.</li>
         </ul>
 
-        <h2>5. Termination of Access</h2>
-        <p>WPCO reserves the right to terminate, suspend, or restrict your access to our Discord server or verification services at any time, with or without cause, especially in cases of rule violations or security threats.</p>
+        <h2>5. Enforcement and Termination</h2>
+        <p>WPCO reserves the absolute right, at its sole discretion, to terminate, suspend, or restrict your access to the Discord server or verification services at any time, with or without prior notice. Actions such as exploiting the system, evading bans, or violating the Code of Conduct will result in immediate enforcement.</p>
 
-        <h2>6. Changes to Terms</h2>
-        <p>We may modify these Terms of Service at any time. Continued use of the WPCO community after changes are made constitutes your acceptance of the new terms.</p>
-        
-        <div style="text-align: center; margin-top: 40px;">
-            <a href="/">&larr; Return to Home</a>
+        <h2>6. Modifications to Terms</h2>
+        <p>We reserve the right to modify or replace these Terms at any time. Material changes will be communicated through our official channels. Your continued use of the WPCO community following any updates constitutes binding acceptance of the revised Terms.</p>
+            </div>
         </div>
-    </div>
+    </main>
+    <script src="main.js"></script>
 </body>
 </html>

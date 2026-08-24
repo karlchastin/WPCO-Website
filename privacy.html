@@ -6,54 +6,54 @@
     <title>Privacy Policy - WPCO</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <style>
-        body { background-color: #050d17; color: #f4f4f5; font-family: 'Inter', sans-serif; line-height: 1.6; padding: 40px; max-width: 800px; margin: 0 auto; }
-        h1, h2 { color: #ffffff; }
-        h1 { font-size: 2.5rem; margin-bottom: 20px; text-align: center; color: #3b82f6; }
-        h2 { font-size: 1.5rem; margin-top: 30px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px; }
-        a { color: #3b82f6; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        .container { background: rgba(255, 255, 255, 0.03); padding: 40px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); }
-    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Privacy Policy</h1>
+    <canvas id="topo-bg"></canvas>
+    <main>
+        <div class="glass-container legal-container">
+            <img src="assets/logo.webp" alt="WPCO Logo" style="width: 80px; height: 80px; margin-bottom: 1.5rem;" onerror="this.style.display='none'">
+            <div class="legal-content">
+                <h1>PRIVACY POLICY</h1>
         <p><strong>Last Updated: August 2026</strong></p>
         
-        <p>World Peace Control Organization ("WPCO", "we", "us", or "our") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you use our verification services.</p>
+        <p>World Peace Control Organization ("WPCO", "we", "us", or "our") is committed to protecting your privacy and ensuring the security of our community. This Privacy Policy explains our practices regarding the collection, use, and safeguarding of information when you interact with our Verification System and associated Discord services.</p>
 
-        <h2>1. Information We Collect</h2>
-        <p>When you use the WPCO Verification System, we collect the following information:</p>
+        <h2>1. Information Collection</h2>
+        <p>To provide a secure and integrated experience, we may collect and process the following categories of information when you initiate the verification process:</p>
         <ul>
-            <li><strong>Discord User ID:</strong> To link your Roblox account to your Discord account.</li>
-            <li><strong>Roblox User ID:</strong> Obtained via the official Roblox OAuth2 API to verify your identity.</li>
-            <li><strong>Device Fingerprint & IP Address:</strong> Used strictly for anti-cheat and alternative account (alt) detection to maintain the integrity of our community.</li>
+            <li><strong>Account Identifiers:</strong> Basic, publicly available identifiers from associated third-party platforms (such as your Discord User ID and Roblox User ID) to facilitate account linking.</li>
+            <li><strong>Network & Telemetry Data:</strong> Standard connection data provided by your browser or network. This may include, but is not limited to, general network identifiers, browser metadata, and connection diagnostics. This data is collected automatically to ensure platform security.</li>
         </ul>
 
-        <h2>2. How We Use Your Information</h2>
-        <p>The information we collect is used exclusively for the following purposes:</p>
+        <h2>2. Use of Information</h2>
+        <p>We process the collected information solely for legitimate administrative and security purposes, including:</p>
         <ul>
-            <li>To grant you the appropriate roles and access within the WPCO Discord Server.</li>
-            <li>To detect and link alternative accounts to ensure fair play and accurate ranking.</li>
-            <li>To maintain the security and integrity of our community.</li>
+            <li>Authenticating your identity to grant access to restricted sections of the WPCO community.</li>
+            <li>Enforcing community guidelines by identifying, mitigating, and preventing ban evasion, abusive behavior, or unauthorized automated access.</li>
+            <li>Maintaining the structural integrity of our internal ranking and moderation systems.</li>
         </ul>
 
         <h2>3. Data Sharing and Disclosure</h2>
-        <p>We <strong>do not</strong> sell, rent, or trade your personal information to third parties. Your data is kept strictly confidential and is only accessible by WPCO system administrators for moderation purposes.</p>
+        <p>WPCO does not sell, lease, or monetize your personal information. We do not share your data with third parties, except in the following limited circumstances:</p>
+        <ul>
+            <li>When strictly necessary to comply with applicable laws, legal requests, or to protect the rights, property, and safety of WPCO and its users.</li>
+            <li>To our trusted administrative and moderation teams strictly for the purpose of community safety and enforcement.</li>
+        </ul>
 
         <h2>4. Data Retention</h2>
-        <p>Your verification data is retained in our secure database for as long as you remain a member of the WPCO community. If you leave the community, your data may be retained for moderation and security records.</p>
+        <p>Information collected during the verification process is retained within our secure, self-hosted databases for as long as necessary to fulfill the purposes outlined in this policy. If you terminate your participation in the WPCO community, certain moderation or security-related records may be retained indefinitely to prevent future abuse.</p>
 
-        <h2>5. Security</h2>
-        <p>We implement industry-standard security measures to protect your data. All communication between your browser, Roblox, and our servers is encrypted using HTTPS.</p>
+        <h2>5. Security Measures</h2>
+        <p>We employ reasonable, industry-standard administrative and technical safeguards to protect your information. All data transmitted during the verification process is encrypted in transit using secure protocols (HTTPS).</p>
 
-        <h2>6. Contact Us</h2>
-        <p>If you have any questions about this Privacy Policy, please contact the WPCO administrative team via our official Discord server.</p>
-        
-        <div style="text-align: center; margin-top: 40px;">
-            <a href="/">&larr; Return to Home</a>
+        <h2>6. Third-Party Services</h2>
+        <p>Our Verification System interfaces with third-party APIs (e.g., Roblox OAuth2). We are not responsible for the privacy practices of these third parties. We encourage you to review their respective privacy policies before authorizing any connections.</p>
+
+        <h2>7. Contact Information</h2>
+        <p>If you have any questions, concerns, or requests regarding this Privacy Policy or your data, please contact the WPCO administrative team directly through our official Discord server.</p>
+            </div>
         </div>
-    </div>
+    </main>
+    <script src="main.js"></script>
 </body>
 </html>
