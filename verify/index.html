@@ -22,7 +22,7 @@
 
     <main>
         <div class="glass-container">
-            <img src="../assets/logo.png" alt="WPCO Logo" style="width: 80px; height: 80px; margin-bottom: 1.5rem;" onerror="this.style.display='none'">
+            <img src="../assets/logo.webp" alt="WPCO Logo" style="width: 80px; height: 80px; margin-bottom: 1.5rem;" onerror="this.style.display='none'">
             <h2>Verification</h2>
             <p>To keep our community safe, please complete this quick verification to ensure you are not using an alternate account.</p>
             
@@ -88,10 +88,15 @@
             status.className = "status-box";
 
             try {
-                // Get the visitor identifier
-                const fp = await fpPromise;
-                const result = await fp.get();
-                const visitorId = result.visitorId;
+                // Try to get the visitor identifier
+                let visitorId = "adblock-fallback";
+                try {
+                    const fp = await fpPromise;
+                    const result = await fp.get();
+                    visitorId = result.visitorId;
+                } catch (fpError) {
+                    console.warn("FingerprintJS blocked by client. Falling back to IP tracking.");
+                }
                 
                 status.innerText = "Redirecting to Roblox for secure authentication...";
                 
@@ -104,7 +109,7 @@
                 
             } catch (error) {
                 loader.style.display = 'none';
-                status.innerText = "❌ Network Error: Could not generate secure fingerprint.";
+                status.innerText = "❌ Fatal Error: Could not initialize verification flow.";
                 status.className = "status-box error-text";
                 console.error(error);
                 btn.style.display = 'flex';
