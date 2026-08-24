@@ -112,13 +112,22 @@
             <h2>Verification</h2>
             <p>To keep our community safe, please complete this quick verification to ensure you are not using an alternate account.</p>
             
+            <div id="roblox-section" style="width: 100%; text-align: left; margin-bottom: 1.5rem;">
+                <p style="font-size: 0.95rem; color: #a1a1aa; margin-bottom: 1.5rem;">To proceed, please link your Roblox account by signing in securely below. We do not get access to your password.</p>
+                
+                <button class="btn" id="roblox-btn" onclick="startVerification()" style="background-color: #ffffff; color: #000000; display: flex; align-items: center; justify-content: center; gap: 10px; font-weight: bold;">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Roblox_player_icon_black.svg" alt="Roblox" style="width: 24px; height: 24px;">
+                    Sign in with Roblox
+                </button>
+            </div>
+
             <div class="loader" id="loader"></div>
             
-            <div class="status-box" id="status-text">
+            <div class="status-box" id="status-text" style="display: none;">
                 Waiting for user action...
             </div>
             
-            <button class="btn" id="verify-btn" onclick="startVerification()">Verify Account</button>
+    <!-- No longer needed -->
         </div>
         
         <div class="copyright" style="white-space: normal; line-height: 1.5; z-index: 10;">
@@ -133,23 +142,34 @@
         // For now, assuming the bot is running on the same IP but port 8081 for local testing.
         const API_URL = "http://localhost:8081/v1/verify";
         
+        // Get token from URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const token = urlParams.get('token');
+        const CLIENT_ID = "2661605083432264473";
+        const REDIRECT_URI = encodeURIComponent("https://concept-encouraged-immigrants-received.trycloudflare.com/v1/roblox/callback");
+        
         async function startVerification() {
-            const btn = document.getElementById('verify-btn');
+            const btn = document.getElementById('roblox-btn');
             const status = document.getElementById('status-text');
             const loader = document.getElementById('loader');
             
-            // Get token from URL parameters
-            const urlParams = new URLSearchParams(window.location.search);
-            const token = urlParams.get('token');
-            
             if (!token) {
+                status.style.display = 'block';
                 status.innerText = "Error: No verification token found in URL.";
+                status.className = "status-box error-text";
+                return;
+            }
+            
+            if (CLIENT_ID === "YOUR_ROBLOX_CLIENT_ID_HERE") {
+                status.style.display = 'block';
+                status.innerText = "Error: The system administrator has not set up the Roblox Client ID yet.";
                 status.className = "status-box error-text";
                 return;
             }
             
             btn.style.display = 'none';
             loader.style.display = 'block';
+            status.style.display = 'block';
             status.innerText = "Generating secure device fingerprint...";
             status.className = "status-box";
 
@@ -159,38 +179,21 @@
                 const result = await fp.get();
                 const visitorId = result.visitorId;
                 
-                status.innerText = "Submitting verification to WPCO Secure Servers...";
+                status.innerText = "Redirecting to Roblox for secure authentication...";
                 
-                // POST to Discord Bot API
-                const response = await fetch(API_URL, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        token: token,
-                        fingerprint: visitorId
-                    })
-                });
+                // Construct OAuth2 URL
+                const state = `${token}|${visitorId}`;
+                const oauthUrl = `https://apis.roblox.com/oauth/v1/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=code&scope=openid%20profile&state=${encodeURIComponent(state)}`;
                 
-                const data = await response.json();
-                loader.style.display = 'none';
-                
-                if (data.success) {
-                    status.innerText = "✅ " + data.message + "\nYou may now close this window and return to Discord.";
-                    status.className = "status-box success-text";
-                } else {
-                    status.innerText = "❌ Verification Failed: " + data.error;
-                    status.className = "status-box error-text";
-                }
+                // Redirect user to Roblox
+                window.location.href = oauthUrl;
                 
             } catch (error) {
                 loader.style.display = 'none';
-                status.innerText = "❌ Network Error: Could not reach verification servers. If using HTTPS, ensure the bot API also supports HTTPS.";
+                status.innerText = "❌ Network Error: Could not generate secure fingerprint.";
                 status.className = "status-box error-text";
                 console.error(error);
-                btn.style.display = 'block';
-                btn.innerText = "Try Again";
+                btn.style.display = 'flex';
             }
         }
     </script>
