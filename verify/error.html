@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WPCO | Verification Failed</title>
+    <link rel="stylesheet" href="../style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <canvas id="topo-bg"></canvas>
+    <main>
+        <div class="glass-container">
+            <img src="../assets/logo.webp" alt="WPCO Logo" style="width: 80px; height: 80px; margin-bottom: 1.5rem;" onerror="this.style.display='none'">
+            <h2 style="color: #ef4444; font-size: 2rem; margin-bottom: 1rem;">Verification Failed</h2>
+            <p id="error-msg" style="font-size: 1.1rem; color: #e4e4e7; margin-bottom: 2rem;">An unknown error occurred during verification.</p>
+            
+            <button class="btn" onclick="window.close()" style="background: #3f3f46;">Close Tab</button>
+        </div>
+        
+        <div class="copyright" style="white-space: normal; line-height: 1.5; z-index: 10;">
+            WORLD PEACE CONTROL ORGANIZATION<br>
+            CONFIDENTIAL // RESTRICTED ACCESS
+        </div>
+    </main>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const msg = urlParams.get('msg');
+        if (msg) {
+            document.getElementById('error-msg').innerText = msg;
+        }
+    </script>
+    <script src="../main.js"></script>
+</body>
+</html>
