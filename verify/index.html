@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WPCO | Account Verification</title>
+    <link rel="stylesheet" href="../style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- FingerprintJS -->
+    <script>
+      // Initialize the agent at application startup.
+      const fpPromise = import('https://openfpcdn.io/fingerprintjs/v4')
+        .then(FingerprintJS => FingerprintJS.load())
+    </script>
+    <style>
+        .verify-container {
+            background: rgba(18, 25, 35, 0.7);
+            border: 1px solid rgba(45, 79, 121, 0.5);
+            border-radius: 16px;
+            padding: 3rem;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .verify-container h2 {
+            font-family: 'Arial Black', Arial, sans-serif;
+            color: white;
+            font-size: 2rem;
+            letter-spacing: 0.05em;
+            margin-bottom: 1rem;
+        }
+
+        .verify-container p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .status-box {
+            background: rgba(5, 13, 23, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            width: 100%;
+            margin-bottom: 2rem;
+            font-family: monospace;
+            color: #3b82f6;
+        }
+
+        .btn {
+            background: #2d4f79;
+            color: white;
+            border: none;
+            padding: 12px 32px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn:hover {
+            background: #3a6296;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(45, 79, 121, 0.4);
+        }
+
+        .btn:disabled {
+            background: #1a2a3f;
+            color: #64748b;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .loader {
+            display: none;
+            width: 24px;
+            height: 24px;
+            border: 3px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+            margin-bottom: 1rem;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .success-text { color: #22c55e !important; }
+        .error-text { color: #ef4444 !important; }
+    </style>
+</head>
+<body>
+    <!-- Assuming topography background is drawn by main.js in the root, we'll just include it -->
+    <canvas id="topo-bg"></canvas>
+
+    <main>
+        <div class="verify-container">
+            <img src="../assets/logo.png" alt="WPCO Logo" style="width: 80px; height: 80px; margin-bottom: 1.5rem;" onerror="this.style.display='none'">
+            <h2>Verification</h2>
+            <p>To keep our community safe, please complete this quick verification to ensure you are not using an alternate account.</p>
+            
+            <div class="loader" id="loader"></div>
+            
+            <div class="status-box" id="status-text">
+                Waiting for user action...
+            </div>
+            
+            <button class="btn" id="verify-btn" onclick="startVerification()">Verify Account</button>
+        </div>
+        
+        <div class="copyright">
+            WORLD PEACE CONTROL ORGANIZATION<br>
+            CONFIDENTIAL // RESTRICTED ACCESS
+        </div>
+    </main>
+
+    <script>
+        // Use a relative path if testing locally, or your Cloudflare Tunnel URL in production!
+        // Example: "https://api.worldpeacecontrol.org/v1/verify"
+        // For now, assuming the bot is running on the same IP but port 8081 for local testing.
+        const API_URL = "http://localhost:8081/v1/verify";
+        
+        async function startVerification() {
+            const btn = document.getElementById('verify-btn');
+            const status = document.getElementById('status-text');
+            const loader = document.getElementById('loader');
+            
+            // Get token from URL parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const token = urlParams.get('token');
+            
+            if (!token) {
+                status.innerText = "Error: No verification token found in URL.";
+                status.className = "status-box error-text";
+                return;
+            }
+            
+            btn.style.display = 'none';
+            loader.style.display = 'block';
+            status.innerText = "Generating secure device fingerprint...";
+            status.className = "status-box";
+
+            try {
+                // Get the visitor identifier
+                const fp = await fpPromise;
+                const result = await fp.get();
+                const visitorId = result.visitorId;
+                
+                status.innerText = "Submitting verification to WPCO Secure Servers...";
+                
+                // POST to Discord Bot API
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        token: token,
+                        fingerprint: visitorId
+                    })
+                });
+                
+                const data = await response.json();
+                loader.style.display = 'none';
+                
+                if (data.success) {
+                    status.innerText = "✅ " + data.message + "\nYou may now close this window and return to Discord.";
+                    status.className = "status-box success-text";
+                } else {
+                    status.innerText = "❌ Verification Failed: " + data.error;
+                    status.className = "status-box error-text";
+                }
+                
+            } catch (error) {
+                loader.style.display = 'none';
+                status.innerText = "❌ Network Error: Could not reach verification servers. If using HTTPS, ensure the bot API also supports HTTPS.";
+                status.className = "status-box error-text";
+                console.error(error);
+                btn.style.display = 'block';
+                btn.innerText = "Try Again";
+            }
+        }
+    </script>
+    <!-- Include main.js for the background canvas -->
+    <script src="../main.js"></script>
+</body>
+</html>
