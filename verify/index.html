@@ -192,6 +192,9 @@
             window.history.replaceState({}, document.title, window.location.pathname);
         }
 
+        // Run this on page load to update the UI based on whether a session exists
+        checkSession();
+
         async function openViewer(url) {
             const mainView = document.getElementById('main-view');
             const docView = document.getElementById('doc-view');
