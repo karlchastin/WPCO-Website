@@ -10,16 +10,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <!-- FingerprintJS -->
-    <script>
-        // Initialize the agent at application startup.
-        const fpPromise = import('https://openfpcdn.io/fingerprintjs/v4')
-            .then(FingerprintJS => FingerprintJS.load())
-            .catch(err => {
-                console.warn("FingerprintJS blocked at load time by AdBlock.");
-                return null;
-            });
-    </script>
     <style>
         .custom-checkbox {
             appearance: none;
@@ -340,16 +330,17 @@
             status.className = "status-box";
 
             try {
-                // Try to get the visitor identifier
+                // Try to get the visitor identifier safely
                 let visitorId = "adblock-fallback";
                 try {
-                    const fp = await fpPromise;
+                    const fpPromiseLocal = import('https://openfpcdn.io/fingerprintjs/v4').then(FingerprintJS => FingerprintJS.load());
+                    const fp = await fpPromiseLocal;
                     if (fp) {
                         const result = await fp.get();
                         visitorId = result.visitorId;
                     }
                 } catch (fpError) {
-                    console.warn("FingerprintJS blocked by client. Falling back to IP tracking.");
+                    console.warn("FingerprintJS blocked by client. Falling back to generic session tracking.");
                 }
 
                 status.innerText = "Redirecting to Roblox for secure authentication...";
