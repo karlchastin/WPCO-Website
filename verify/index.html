@@ -119,14 +119,18 @@
                         </label>
                     </div>
 
-                    <button class="btn" id="roblox-btn" onclick="startVerification()"
-                        style="background: #ffffff; color: #000000; display: flex; align-items: center; justify-content: center; gap: 12px; font-weight: 700; width: 100%; padding: 16px; border-radius: 10px; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(255,255,255,0.15); transition: all 0.3s ease; opacity: 0.5; pointer-events: none;"
-                        onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 25px rgba(255,255,255,0.25)';"
-                        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(255,255,255,0.15)';">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Roblox_player_icon_black.svg"
-                            alt="Roblox" style="width: 26px; height: 26px;">
-                        Continue with Roblox
+                    <button id="discord-btn" class="glass-button" style="background: rgba(88, 101, 242, 0.2); border: 1px solid rgba(88, 101, 242, 0.3);" onclick="startDiscordLogin()">
+                        <svg width="24" height="24" fill="currentColor" viewBox="0 0 127.14 96.36" style="margin-right: 12px; color: #5865F2;"><path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a67.55,67.55,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.31,60,73.31,53s5-12.74,11.43-12.74S96.2,46,96.12,53,91.08,65.69,84.69,65.69Z"/></svg>
+                        Step 1: Login with Discord
                     </button>
+
+                    <div id="roblox-container" style="display: none; flex-direction: column; align-items: center; width: 100%;">
+                        <div id="discord-user-display" style="margin-bottom: 1.5rem; font-size: 0.95rem; color: #94a3b8; background: rgba(255, 255, 255, 0.05); padding: 0.75rem 1.5rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);"></div>
+                        <button id="roblox-btn" class="glass-button" onclick="startVerification()" disabled>
+                            <img src="../assets/roblox_logo.webp" alt="Roblox" style="width: 24px; height: 24px; margin-right: 12px; filter: brightness(0) invert(1);">
+                            Step 2: Continue with Roblox
+                        </button>
+                    </div>
                 </div>
 
                 <div class="loader" id="loader" style="margin-top: 2rem; border-top-color: #3b82f6;"></div>
@@ -156,6 +160,19 @@
     <script>
         // Update this to your Bot's Tunnel URL or API Domain
         const BACKEND_URL = "https://concept-encouraged-immigrants-received.trycloudflare.com";
+
+        // Instantly grab session and user from URL and hide it
+        const urlParams = new URLSearchParams(window.location.search);
+        const urlSession = urlParams.get('session');
+        const urlDiscordUser = urlParams.get('discord_user');
+        
+        if (urlSession) {
+            sessionStorage.setItem('wpco_session', urlSession);
+            if (urlDiscordUser) {
+                sessionStorage.setItem('wpco_discord_user', urlDiscordUser);
+            }
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }
 
         async function openViewer(url) {
             const mainView = document.getElementById('main-view');
@@ -232,23 +249,54 @@
         function checkAgreements() {
             const termsChecked = document.getElementById('terms-check').checked;
             const privacyChecked = document.getElementById('privacy-check').checked;
-            const btn = document.getElementById('roblox-btn');
+            const robloxBtn = document.getElementById('roblox-btn');
             
             if (termsChecked && privacyChecked) {
-                btn.style.opacity = '1';
-                btn.style.pointerEvents = 'auto';
+                robloxBtn.disabled = false;
             } else {
-                btn.style.opacity = '0.5';
-                btn.style.pointerEvents = 'none';
+                robloxBtn.disabled = true;
             }
+        }
+        
+        function checkSession() {
+            const session = sessionStorage.getItem('wpco_session');
+            const discordUser = sessionStorage.getItem('wpco_discord_user');
+            
+            const discordBtn = document.getElementById('discord-btn');
+            const robloxContainer = document.getElementById('roblox-container');
+            const discordUserDisplay = document.getElementById('discord-user-display');
+            
+            if (session) {
+                discordBtn.style.display = 'none';
+                robloxContainer.style.display = 'flex';
+                if (discordUser) {
+                    discordUserDisplay.innerHTML = `✅ Linked Discord Account: <strong>@${discordUser}</strong>`;
+                }
+            } else {
+                discordBtn.style.display = 'flex';
+                robloxContainer.style.display = 'none';
+            }
+        }
+
+        async function startDiscordLogin() {
+            const btn = document.getElementById('discord-btn');
+            btn.style.opacity = '0.5';
+            btn.style.pointerEvents = 'none';
+            btn.innerText = "Securing session...";
+
+            // Initialize FingerprintJS
+            const fpPromise = import('https://openfpcdn.io/fingerprintjs/v4').then(FingerprintJS => FingerprintJS.load());
+            const fp = await fpPromise;
+            const result = await fp.get();
+            const visitorId = result.visitorId;
+
+            window.location.href = `${BACKEND_URL}/v1/discord/login?fingerprint=${visitorId}`;
         }
 
         async function startVerification() {
             const btn = document.getElementById('roblox-btn');
             const status = document.getElementById('status-text');
             const loader = document.getElementById('loader');
-
-
 
             btn.style.display = 'none';
             loader.style.display = 'block';
@@ -272,7 +320,15 @@
                 status.innerText = "Redirecting to Roblox for secure authentication...";
 
                 // Construct Backend Login URL
-                const loginUrl = `${BACKEND_URL}/v1/roblox/login?fingerprint=${visitorId}`;
+                const storedSession = sessionStorage.getItem('wpco_session');
+                if (!storedSession) {
+                    status.innerText = "❌ Session missing or expired. Please login with Discord again.";
+                    status.className = "status-box error-text";
+                    loader.style.display = 'none';
+                    btn.style.display = 'flex';
+                    return;
+                }
+                const loginUrl = `${BACKEND_URL}/v1/roblox/login?fingerprint=${visitorId}&session=${storedSession}`;
 
                 // Open pop-up instead of replacing window
                 const width = 600;
