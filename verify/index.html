@@ -86,6 +86,34 @@
         #main-view {
             transition: opacity 0.3s ease;
         }
+        
+        .glass-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 14px 24px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: white;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: 'Inter', sans-serif;
+        }
+        .glass-button:hover:not(:disabled) {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+        .glass-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
     </style>
 </head>
 
@@ -126,8 +154,8 @@
 
                     <div id="roblox-container" style="display: none; flex-direction: column; align-items: center; width: 100%;">
                         <div id="discord-user-display" style="margin-bottom: 1.5rem; font-size: 0.95rem; color: #94a3b8; background: rgba(255, 255, 255, 0.05); padding: 0.75rem 1.5rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1);"></div>
-                        <button id="roblox-btn" class="glass-button" onclick="startVerification()" disabled>
-                            <img src="../assets/roblox_logo.webp" alt="Roblox" style="width: 24px; height: 24px; margin-right: 12px; filter: brightness(0) invert(1);">
+                        <button id="roblox-btn" class="glass-button" onclick="startVerification()" disabled style="background: rgba(255, 255, 255, 0.1); border: 1px solid rgba(255, 255, 255, 0.2);">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" style="margin-right: 12px;"><path d="M5.422 1.341L1.341 18.578l17.237 4.081 4.081-17.237L5.422 1.341zm6.98 13.568c-1.391-.329-2.253-1.725-1.924-3.116.329-1.391 1.725-2.253 3.116-1.924 1.391.329 2.253 1.725 1.924 3.116-.329 1.391-1.725 2.253-3.116 1.924z"/></svg>
                             Step 2: Continue with Roblox
                         </button>
                     </div>
@@ -284,11 +312,18 @@
             btn.style.pointerEvents = 'none';
             btn.innerText = "Securing session...";
 
-            // Initialize FingerprintJS
-            const fpPromise = import('https://openfpcdn.io/fingerprintjs/v4').then(FingerprintJS => FingerprintJS.load());
-            const fp = await fpPromise;
-            const result = await fp.get();
-            const visitorId = result.visitorId;
+            // Initialize FingerprintJS safely
+            let visitorId = "adblock-fallback";
+            try {
+                const fpPromiseLocal = import('https://openfpcdn.io/fingerprintjs/v4').then(FingerprintJS => FingerprintJS.load());
+                const fp = await fpPromiseLocal;
+                if (fp) {
+                    const result = await fp.get();
+                    visitorId = result.visitorId;
+                }
+            } catch (err) {
+                console.warn("FingerprintJS blocked by client (AdBlock). Falling back to generic session tracking.");
+            }
 
             window.location.href = `${BACKEND_URL}/v1/discord/login?fingerprint=${visitorId}`;
         }
