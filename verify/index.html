@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,76 +12,244 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <!-- FingerprintJS -->
     <script>
-      // Initialize the agent at application startup.
-      const fpPromise = import('https://openfpcdn.io/fingerprintjs/v4')
-        .then(FingerprintJS => FingerprintJS.load())
+        // Initialize the agent at application startup.
+        const fpPromise = import('https://openfpcdn.io/fingerprintjs/v4')
+            .then(FingerprintJS => FingerprintJS.load())
+            .catch(err => {
+                console.warn("FingerprintJS blocked at load time by AdBlock.");
+                return null;
+            });
     </script>
+    <style>
+        .custom-checkbox {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 22px;
+            height: 22px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 6px;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .custom-checkbox:checked {
+            background: #3b82f6;
+            border-color: #3b82f6;
+        }
+
+        .custom-checkbox:checked::after {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 6px;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+        }
+
+        .custom-checkbox:hover:not(:checked) {
+            border-color: rgba(59, 130, 246, 0.5);
+            background: rgba(59, 130, 246, 0.1);
+        }
+        
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            padding: 12px 15px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+        
+        .checkbox-container:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Smooth transitions for container and views */
+        .glass-container {
+            transition: max-width 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s ease;
+            scroll-behavior: smooth;
+        }
+        #main-view {
+            transition: opacity 0.3s ease;
+        }
+    </style>
 </head>
+
 <body>
     <!-- Assuming topography background is drawn by main.js in the root, we'll just include it -->
     <canvas id="topo-bg"></canvas>
 
     <main>
-        <div class="glass-container">
-            <img src="../assets/logo.webp" alt="WPCO Logo" style="width: 80px; height: 80px; margin-bottom: 1.5rem;" onerror="this.style.display='none'">
-            <h2>Verification</h2>
-            <p>To keep our community safe, please complete this quick verification to ensure you are not using an alternate account.</p>
+        <div class="glass-container" style="padding: 3.5rem 3rem; position: relative;">
             
-            <div id="roblox-section" style="width: 100%; text-align: left; margin-bottom: 1.5rem;">
-                <p style="font-size: 0.95rem; color: #a1a1aa; margin-bottom: 1.5rem;">To proceed, please link your Roblox account by signing in securely below. We do not get access to your password.</p>
-                
-                <button class="btn" id="roblox-btn" onclick="startVerification()" style="background-color: #ffffff; color: #000000; display: flex; align-items: center; justify-content: center; gap: 10px; font-weight: bold;">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Roblox_player_icon_black.svg" alt="Roblox" style="width: 24px; height: 24px;">
-                    Sign in with Roblox
+            <!-- Main View -->
+            <div id="main-view" style="display: flex; flex-direction: column; align-items: center; width: 100%; opacity: 1;">
+                <img src="../assets/logo.webp" alt="WPCO Logo" style="width: 80px; height: 80px; margin-bottom: 1.5rem;" onerror="this.style.display='none'">
+
+                <h2 style="font-size: 2.5rem; margin-bottom: 0.5rem; white-space: nowrap; text-transform: uppercase;">VERIFICATION</h2>
+
+                <p style="color: #94a3b8; font-size: 1.05rem; margin-bottom: 2rem; max-width: 90%; text-align: center;">To keep our community safe, please complete this quick verification to confirm your identity.</p>
+
+                <div id="roblox-section" style="width: 100%; display: flex; flex-direction: column; align-items: center;">
+
+
+
+                    <div style="width: 100%; display: flex; flex-direction: column; gap: 4px; margin-bottom: 2rem; font-size: 0.95rem; color: #e2e8f0; text-align: left; background: rgba(0,0,0,0.3); padding: 8px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.05); box-shadow: inset 0 2px 10px rgba(0,0,0,0.2);">
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="terms-check" class="custom-checkbox" onchange="checkAgreements()">
+                            <span>I have read and agree to the <a href="javascript:void(0)" onclick="openViewer('../terms.html')" style="color: #60a5fa; text-decoration: none; font-weight: 600; border-bottom: 1px dashed #60a5fa; padding-bottom: 1px; transition: color 0.2s ease;" onmouseover="this.style.color='#93c5fd'" onmouseout="this.style.color='#60a5fa'">Terms of Service</a></span>
+                        </label>
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="privacy-check" class="custom-checkbox" onchange="checkAgreements()">
+                            <span>I have read and agree to the <a href="javascript:void(0)" onclick="openViewer('../privacy.html')" style="color: #60a5fa; text-decoration: none; font-weight: 600; border-bottom: 1px dashed #60a5fa; padding-bottom: 1px; transition: color 0.2s ease;" onmouseover="this.style.color='#93c5fd'" onmouseout="this.style.color='#60a5fa'">Privacy Policy</a></span>
+                        </label>
+                    </div>
+
+                    <button class="btn" id="roblox-btn" onclick="startVerification()"
+                        style="background: #ffffff; color: #000000; display: flex; align-items: center; justify-content: center; gap: 12px; font-weight: 700; width: 100%; padding: 16px; border-radius: 10px; font-size: 1.1rem; box-shadow: 0 4px 15px rgba(255,255,255,0.15); transition: all 0.3s ease; opacity: 0.5; pointer-events: none;"
+                        onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 25px rgba(255,255,255,0.25)';"
+                        onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(255,255,255,0.15)';">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Roblox_player_icon_black.svg"
+                            alt="Roblox" style="width: 26px; height: 26px;">
+                        Continue with Roblox
+                    </button>
+                </div>
+
+                <div class="loader" id="loader" style="margin-top: 2rem; border-top-color: #3b82f6;"></div>
+
+                <div class="status-box" id="status-text"
+                    style="display: none; margin-top: 1.5rem; background: rgba(59, 130, 246, 0.1); border-color: rgba(59, 130, 246, 0.3); border-radius: 8px;">
+                    Waiting for user action...
+                </div>
+            </div>
+            
+            <!-- Document View -->
+            <div id="doc-view" style="display: none; flex-direction: column; width: 100%; position: relative; opacity: 0;">
+                <button onclick="closeViewer()" style="position: absolute; top: -20px; left: -20px; background: transparent; color: #94a3b8; border: none; cursor: pointer; font-family: 'Inter', sans-serif; transition: all 0.2s ease; display: flex; align-items: center; gap: 5px; font-weight: 600;" onmouseover="this.style.color='#ffffff'; this.style.transform='translateX(-3px)';" onmouseout="this.style.color='#94a3b8'; this.style.transform='translateX(0)';">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path></svg>
+                    Back
                 </button>
+                <div id="doc-content" style="width: 100%; padding-top: 1.5rem; margin-top: 1rem; color: #e2e8f0; font-size: 0.95rem; line-height: 1.6;" class="legal-content">
+                    <!-- Dynamic content gets injected here -->
+                </div>
             </div>
 
-            <div class="loader" id="loader"></div>
-            
-            <div class="status-box" id="status-text" style="display: none;">
-                Waiting for user action...
-            </div>
-            
-    <!-- No longer needed -->
         </div>
-        
-        <div class="copyright" style="white-space: normal; line-height: 1.5; z-index: 10;">
-            WORLD PEACE CONTROL ORGANIZATION<br>
-            CONFIDENTIAL // RESTRICTED ACCESS
-        </div>
+
+        <p class="copyright">© 2023-2026 World Peace Control Organization. All Rights Reserved.</p>
     </main>
 
     <script>
-        // Use a relative path if testing locally, or your Cloudflare Tunnel URL in production!
-        // Example: "https://api.worldpeacecontrol.org/v1/verify"
-        // For now, assuming the bot is running on the same IP but port 8081 for local testing.
-        const API_URL = "http://localhost:8081/v1/verify";
-        
-        // Get token from URL parameters
-        const urlParams = new URLSearchParams(window.location.search);
-        const token = urlParams.get('token');
-        const CLIENT_ID = "2661605083432264473";
-        const REDIRECT_URI = encodeURIComponent("https://concept-encouraged-immigrants-received.trycloudflare.com/v1/roblox/callback");
-        
+        // Update this to your Bot's Tunnel URL or API Domain
+        const BACKEND_URL = "https://concept-encouraged-immigrants-received.trycloudflare.com";
+
+        async function openViewer(url) {
+            const mainView = document.getElementById('main-view');
+            const docView = document.getElementById('doc-view');
+            const docContent = document.getElementById('doc-content');
+            
+            // Fade out main view
+            mainView.style.opacity = '0';
+            
+            setTimeout(async () => {
+                mainView.style.display = 'none';
+                
+                // Expand container width and reset scroll
+                const container = document.querySelector('.glass-container');
+                container.classList.add('legal-container');
+                container.scrollTop = 0;
+                
+                // Prepare doc view (invisible)
+                docView.style.display = 'flex';
+                docView.style.opacity = '0';
+                docContent.innerHTML = '<div class="loader" style="margin: 2rem auto; border-top-color: #3b82f6;"></div>';
+                
+                try {
+                    const response = await fetch(url);
+                    const text = await response.text();
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(text, 'text/html');
+                    const legalContent = doc.querySelector('.legal-content');
+                    if (legalContent) {
+                        docContent.innerHTML = legalContent.innerHTML;
+                    } else {
+                        docContent.innerHTML = '<p style="color: #ef4444;">Failed to load content.</p>';
+                    }
+                } catch (err) {
+                    docContent.innerHTML = '<p style="color: #ef4444;">Error loading document.</p>';
+                }
+
+                // Wait for the container's 400ms resize transition to finish before fading in the text
+                setTimeout(() => {
+                    docView.style.transition = 'opacity 0.3s ease';
+                    docView.style.opacity = '1';
+                }, 400);
+            }, 300);
+        }
+
+        function closeViewer() {
+            const mainView = document.getElementById('main-view');
+            const docView = document.getElementById('doc-view');
+            
+            // Fade out doc view
+            docView.style.opacity = '0';
+            
+            setTimeout(() => {
+                docView.style.display = 'none';
+                document.getElementById('doc-content').innerHTML = '';
+                
+                // Shrink container width and reset scroll
+                const container = document.querySelector('.glass-container');
+                container.classList.remove('legal-container');
+                container.scrollTop = 0;
+                
+                // Prepare main view (invisible)
+                mainView.style.display = 'flex';
+                mainView.style.opacity = '0';
+
+                // Wait for the container's 400ms resize transition to finish before fading in the main view
+                setTimeout(() => {
+                    mainView.style.transition = 'opacity 0.3s ease';
+                    mainView.style.opacity = '1';
+                }, 400);
+            }, 300);
+        }
+
+        function checkAgreements() {
+            const termsChecked = document.getElementById('terms-check').checked;
+            const privacyChecked = document.getElementById('privacy-check').checked;
+            const btn = document.getElementById('roblox-btn');
+            
+            if (termsChecked && privacyChecked) {
+                btn.style.opacity = '1';
+                btn.style.pointerEvents = 'auto';
+            } else {
+                btn.style.opacity = '0.5';
+                btn.style.pointerEvents = 'none';
+            }
+        }
+
         async function startVerification() {
             const btn = document.getElementById('roblox-btn');
             const status = document.getElementById('status-text');
             const loader = document.getElementById('loader');
-            
-            if (!token) {
-                status.style.display = 'block';
-                status.innerText = "Error: No verification token found in URL.";
-                status.className = "status-box error-text";
-                return;
-            }
-            
-            if (CLIENT_ID === "YOUR_ROBLOX_CLIENT_ID_HERE") {
-                status.style.display = 'block';
-                status.innerText = "Error: The system administrator has not set up the Roblox Client ID yet.";
-                status.className = "status-box error-text";
-                return;
-            }
-            
+
+
+
             btn.style.display = 'none';
             loader.style.display = 'block';
             status.style.display = 'block';
@@ -92,21 +261,60 @@
                 let visitorId = "adblock-fallback";
                 try {
                     const fp = await fpPromise;
-                    const result = await fp.get();
-                    visitorId = result.visitorId;
+                    if (fp) {
+                        const result = await fp.get();
+                        visitorId = result.visitorId;
+                    }
                 } catch (fpError) {
                     console.warn("FingerprintJS blocked by client. Falling back to IP tracking.");
                 }
-                
+
                 status.innerText = "Redirecting to Roblox for secure authentication...";
+
+                // Construct Backend Login URL
+                const loginUrl = `${BACKEND_URL}/v1/roblox/login?fingerprint=${visitorId}`;
+
+                // Open pop-up instead of replacing window
+                const width = 600;
+                const height = 700;
+                const left = (screen.width - width) / 2;
+                const top = (screen.height - height) / 2;
                 
-                // Construct OAuth2 URL
-                const state = `${token}|${visitorId}`;
-                const oauthUrl = `https://apis.roblox.com/oauth/v1/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=code&scope=openid%20profile&state=${encodeURIComponent(state)}`;
+                const authWindow = window.open(loginUrl, 'RobloxAuth', `width=${width},height=${height},top=${top},left=${left}`);
                 
-                // Redirect user to Roblox
-                window.location.href = oauthUrl;
+                // Set up listener for messages from the popup
+                window.addEventListener('message', function authListener(event) {
+                    if (event.origin !== window.location.origin) return;
+                    
+                    if (event.data && event.data.type === 'auth_result') {
+                        window.removeEventListener('message', authListener);
+                        if (event.data.success) {
+                            status.innerText = "Verification Successful! You may return to Discord.";
+                            status.className = "status-box success-text";
+                            loader.style.display = 'none';
+                            document.getElementById('roblox-section').style.display = 'none';
+                        } else {
+                            status.innerText = "❌ Error: " + event.data.message;
+                            status.className = "status-box error-text";
+                            loader.style.display = 'none';
+                            btn.style.display = 'flex';
+                        }
+                    }
+                });
                 
+                // Monitor if they closed the popup manually
+                const timer = setInterval(() => {
+                    if (authWindow && authWindow.closed) {
+                        clearInterval(timer);
+                        if (loader.style.display === 'block') {
+                            loader.style.display = 'none';
+                            status.innerText = "Authentication cancelled or popup blocked.";
+                            status.className = "status-box error-text";
+                            btn.style.display = 'flex';
+                        }
+                    }
+                }, 500);
+
             } catch (error) {
                 loader.style.display = 'none';
                 status.innerText = "❌ Fatal Error: Could not initialize verification flow.";
@@ -119,4 +327,5 @@
     <!-- Include main.js for the background canvas -->
     <script src="../main.js"></script>
 </body>
+
 </html>

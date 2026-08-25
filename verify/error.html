@@ -15,22 +15,23 @@
     <main>
         <div class="glass-container">
             <img src="../assets/logo.webp" alt="WPCO Logo" style="width: 80px; height: 80px; margin-bottom: 1.5rem;" onerror="this.style.display='none'">
-            <h2 style="color: #ef4444; font-size: 2rem; margin-bottom: 1rem;">Verification Failed</h2>
+            <h2 style="font-size: 2.5rem; margin-bottom: 1rem; text-transform: uppercase;">VERIFICATION FAILED</h2>
             <p id="error-msg" style="font-size: 1.1rem; color: #e4e4e7; margin-bottom: 2rem;">An unknown error occurred during verification.</p>
             
             <button class="btn" onclick="window.close()" style="background: #3f3f46;">Close Tab</button>
         </div>
         
-        <div class="copyright" style="white-space: normal; line-height: 1.5; z-index: 10;">
-            WORLD PEACE CONTROL ORGANIZATION<br>
-            CONFIDENTIAL // RESTRICTED ACCESS
-        </div>
+        <p class="copyright">© 2023-2026 World Peace Control Organization. All Rights Reserved.</p>
     </main>
     <script>
         const urlParams = new URLSearchParams(window.location.search);
         const msg = urlParams.get('msg');
         if (msg) {
             document.getElementById('error-msg').innerText = msg;
+        }
+        
+        if (window.opener) {
+            window.opener.postMessage({ type: 'auth_result', success: false, message: msg || "Unknown Error" }, window.location.origin);
         }
     </script>
     <script src="../main.js"></script>
