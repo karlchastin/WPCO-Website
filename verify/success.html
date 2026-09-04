@@ -26,11 +26,7 @@
     </main>
     <script src="../main.js"></script>
     <script>
-        if (window.opener) {
-            document.getElementById('close-msg').innerText = "This popup will close automatically in a moment...";
-            window.opener.postMessage({ type: 'auth_result', success: true }, window.location.origin);
-            setTimeout(() => window.close(), 1500);
-        }
+        // The user will close the tab manually or return to Discord.
     </script>
 </body>
 </html>

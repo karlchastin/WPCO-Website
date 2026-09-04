@@ -30,9 +30,7 @@
             document.getElementById('error-msg').innerText = msg;
         }
         
-        if (window.opener) {
-            window.opener.postMessage({ type: 'auth_result', success: false, message: msg || "Unknown Error" }, window.location.origin);
-        }
+        // The user will close the tab manually or return to Discord.
     </script>
     <script src="../main.js"></script>
 </body>

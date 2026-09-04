@@ -367,46 +367,8 @@
                 }
                 const loginUrl = `${BACKEND_URL}/v1/roblox/login?fingerprint=${visitorId}&session=${storedSession}`;
 
-                // Open pop-up instead of replacing window
-                const width = 600;
-                const height = 700;
-                const left = (screen.width - width) / 2;
-                const top = (screen.height - height) / 2;
-                
-                const authWindow = window.open(loginUrl, 'RobloxAuth', `width=${width},height=${height},top=${top},left=${left}`);
-                
-                // Set up listener for messages from the popup
-                window.addEventListener('message', function authListener(event) {
-                    if (event.origin !== window.location.origin) return;
-                    
-                    if (event.data && event.data.type === 'auth_result') {
-                        window.removeEventListener('message', authListener);
-                        if (event.data.success) {
-                            status.innerText = "Verification Successful! You may return to Discord.";
-                            status.className = "status-box success-text";
-                            loader.style.display = 'none';
-                            document.getElementById('roblox-section').style.display = 'none';
-                        } else {
-                            status.innerText = "❌ Error: " + event.data.message;
-                            status.className = "status-box error-text";
-                            loader.style.display = 'none';
-                            btn.style.display = 'flex';
-                        }
-                    }
-                });
-                
-                // Monitor if they closed the popup manually
-                const timer = setInterval(() => {
-                    if (authWindow && authWindow.closed) {
-                        clearInterval(timer);
-                        if (loader.style.display === 'block') {
-                            loader.style.display = 'none';
-                            status.innerText = "Authentication cancelled or popup blocked.";
-                            status.className = "status-box error-text";
-                            btn.style.display = 'flex';
-                        }
-                    }
-                }, 500);
+                // Open in the same tab instead of a pop-up
+                window.location.href = loginUrl;
 
             } catch (error) {
                 loader.style.display = 'none';
