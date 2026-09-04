@@ -272,6 +272,8 @@
             const privacyChecked = document.getElementById('privacy-check').checked;
             const robloxBtn = document.getElementById('roblox-btn');
             
+            sessionStorage.setItem('wpco_agreed', (termsChecked && privacyChecked) ? 'true' : 'false');
+            
             if (termsChecked && privacyChecked) {
                 robloxBtn.disabled = false;
             } else {
@@ -286,6 +288,12 @@
             const discordBtn = document.getElementById('discord-btn');
             const robloxContainer = document.getElementById('roblox-container');
             const discordUserDisplay = document.getElementById('discord-user-display');
+            
+            if (sessionStorage.getItem('wpco_agreed') === 'true') {
+                document.getElementById('terms-check').checked = true;
+                document.getElementById('privacy-check').checked = true;
+                document.getElementById('roblox-btn').disabled = false;
+            }
             
             if (session) {
                 discordBtn.style.display = 'none';
