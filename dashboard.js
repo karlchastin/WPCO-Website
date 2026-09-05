@@ -78,6 +78,11 @@ document.addEventListener('DOMContentLoaded', () => {
         window.location.href = "https://api.worldpeacecontrol.org/v1/discord/login?redirect=dashboard";
         return null;
       }
+      if (response.status === 403) {
+        alert("Access Denied: You do not have permission to view the dashboard at this time.");
+        window.location.href = "/";
+        return null;
+      }
       return await response.json();
     } catch (e) {
       console.error(e);
