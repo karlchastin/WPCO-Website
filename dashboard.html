@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Operative Dashboard | WPCO</title>
+  <meta name="theme-color" content="#050d17" />
+  <link rel="icon" type="image/webp" href="assets/logo.webp" />
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body>
+  <!-- WebGL Background -->
+  <canvas id="topo-bg"></canvas>
+
+  <div class="dashboard-wrapper">
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar">
+      <div class="sidebar-header">
+        <img src="assets/logo.webp" alt="WPCO Logo" class="sidebar-logo" draggable="false" />
+        <h2>WPCO</h2>
+      </div>
+      
+      <ul class="nav-links">
+        <li class="active" data-target="job-board">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
+          Job Board
+        </li>
+        <li data-target="history">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+          Operations History
+        </li>
+      </ul>
+      
+      <div class="sidebar-footer">
+        <button id="logout-btn" class="btn-secondary">Log Out</button>
+      </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <!-- Topbar -->
+      <header class="topbar">
+        <div class="topbar-title">
+          <h1 id="page-title">Job Board</h1>
+          <p id="page-subtitle">View and apply for active operations.</p>
+        </div>
+        
+        <div class="user-profile">
+          <div class="profile-info">
+            <span id="profile-name">Loading...</span>
+            <span id="profile-status" class="status-badge loading">Authenticating...</span>
+          </div>
+          <div class="profile-avatar">
+            <img id="profile-avatar-img" src="assets/logo.webp" alt="User Avatar" />
+          </div>
+        </div>
+      </header>
+
+      <!-- Content Views -->
+      <div class="views-container">
+        
+        <!-- Job Board View -->
+        <section id="view-job-board" class="view active">
+          <div class="filter-bar">
+            <input type="text" id="job-search" placeholder="Search operations..." class="search-input" />
+            <select id="job-filter" class="filter-select">
+              <option value="all">All Types</option>
+              <option value="Combat">Combat</option>
+              <option value="Training">Training</option>
+              <option value="Recon">Recon</option>
+            </select>
+          </div>
+          
+          <div id="job-board-grid" class="cards-grid">
+            <!-- Populated by JS -->
+            <div class="loading-spinner">Loading Operations...</div>
+          </div>
+        </section>
+
+        <!-- History View -->
+        <section id="view-history" class="view">
+          <div class="history-table-container">
+            <table class="history-table">
+              <thead>
+                <tr>
+                  <th>Codename</th>
+                  <th>Type</th>
+                  <th>Host</th>
+                  <th>Concluded On</th>
+                </tr>
+              </thead>
+              <tbody id="history-table-body">
+                <!-- Populated by JS -->
+                <tr><td colspan="4" class="text-center">Loading History...</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="main.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>
