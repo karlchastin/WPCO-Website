@@ -19,7 +19,7 @@
   <canvas id="topo-bg"></canvas>
 
   <main>
-    <div class="glass-container dashboard-container" style="padding: 2.5rem 3rem; position: relative; max-width: 900px; width: 90%;">
+    <div class="glass-container dashboard-container">
       
       <!-- Topbar / Header -->
       <header class="topbar">
@@ -44,18 +44,20 @@
 
       <!-- Operations View -->
       <section id="view-operations" class="view active">
-        <div class="filter-bar">
-          <input type="text" id="job-search" placeholder="Search operations..." class="search-input" />
-          <select id="job-filter" class="filter-select">
-            <option value="all">All Types</option>
-            <option value="Combat">Combat</option>
-            <option value="Training">Training</option>
-            <option value="Recon">Recon</option>
-          </select>
-        </div>
-        
-        <div id="job-board-grid" class="cards-grid">
-          <div class="loading-spinner">Loading Operations...</div>
+        <div class="dashboard-content">
+          <div class="filter-bar">
+            <input type="text" id="job-search" placeholder="Search operations..." class="search-input" />
+            <select id="job-filter" class="filter-select">
+              <option value="all">All Types</option>
+              <option value="Combat">Combat</option>
+              <option value="Training">Training</option>
+              <option value="Recon">Recon</option>
+            </select>
+          </div>
+          
+          <div id="job-board-grid" class="cards-grid">
+            <div class="loading-spinner">Loading Operations...</div>
+          </div>
         </div>
       </section>
 

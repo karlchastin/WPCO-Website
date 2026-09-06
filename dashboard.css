@@ -40,9 +40,10 @@ body {
 main {
   display: flex;
   justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  padding: 2rem;
+  align-items: stretch;
+  height: 100vh;
+  padding: 3vh 3vw;
+  box-sizing: border-box;
 }
 
 .dashboard-container {
@@ -56,6 +57,11 @@ main {
   border-radius: 12px;
   overflow: hidden;
   transition: all 0.3s ease;
+  width: 100% !important;
+  max-width: 1600px !important;
+  max-height: 100% !important;
+  padding: 0 !important;
+  margin: 0 auto;
 }
 
 /* Modal Overlay */
@@ -105,9 +111,13 @@ main {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 2rem;
-  padding-bottom: 1.5rem;
+  padding: 2rem 3rem;
   border-bottom: 1px solid rgba(58, 134, 255, 0.2);
+  background: rgba(5, 13, 23, 0.4);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  flex-shrink: 0;
 }
 
 .topbar-left {
@@ -122,14 +132,7 @@ main {
   filter: drop-shadow(0 0 10px rgba(58, 134, 255, 0.5));
 }
 
-.topbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 3rem;
-  padding-bottom: 1.5rem;
-  border-bottom: 1px solid var(--glass-border);
-}
+
 
 .topbar-title h1 {
   margin: 0 0 0.25rem 0;
@@ -215,10 +218,35 @@ main {
 .view {
   display: none;
   animation: fadeIn 0.4s ease forwards;
+  flex: 1;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
 }
 
 .view.active {
-  display: block;
+  display: flex;
+}
+
+.dashboard-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 2rem 3rem;
+}
+
+/* Custom scrollbar for content */
+.dashboard-content::-webkit-scrollbar {
+  width: 8px;
+}
+.dashboard-content::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+.dashboard-content::-webkit-scrollbar-thumb {
+  background: rgba(58, 134, 255, 0.3);
+  border-radius: 4px;
+}
+.dashboard-content::-webkit-scrollbar-thumb:hover {
+  background: rgba(58, 134, 255, 0.5);
 }
 
 @keyframes fadeIn {
@@ -378,14 +406,23 @@ main {
 
 /* Responsive */
 @media (max-width: 768px) {
+  main {
+    padding: 0;
+  }
   .dashboard-container {
-    padding: 1.5rem;
-    width: 95%;
+    width: 100% !important;
+    max-width: 100% !important;
+    border-radius: 0;
+    border: none;
   }
   .topbar {
+    padding: 1.5rem;
     flex-direction: column;
     align-items: flex-start;
     gap: 1.5rem;
+  }
+  .dashboard-content {
+    padding: 1.5rem;
   }
   .user-profile {
     width: 100%;
