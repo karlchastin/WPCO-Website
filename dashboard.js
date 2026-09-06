@@ -26,22 +26,41 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
   
-  // Modal Logic
+  // Navigation Logic
+  const navLinks = document.querySelectorAll('.nav-link[data-target]');
+  const views = document.querySelectorAll('.view');
+  const pageTitle = document.getElementById('page-title');
+  const pageSubtitle = document.getElementById('page-subtitle');
   let historyLoaded = false;
-  window.toggleHistoryModal = function() {
-    if (historyModal.style.display === 'none') {
-      historyModal.style.display = 'flex';
-      // tiny delay to allow display:flex to apply before changing opacity
-      setTimeout(() => historyModal.style.opacity = '1', 10);
-      if (!historyLoaded) {
-        loadHistory();
-        historyLoaded = true;
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      // Remove active class from all links
+      navLinks.forEach(nav => nav.classList.remove('active'));
+      // Add active to clicked link
+      link.classList.add('active');
+      
+      // Hide all views
+      views.forEach(view => view.classList.remove('active'));
+      
+      // Show target view
+      const targetId = link.getAttribute('data-target');
+      document.getElementById(targetId).classList.add('active');
+      
+      // Update Title
+      if (targetId === 'view-operations') {
+        pageTitle.textContent = "OPERATIONS";
+        pageSubtitle.textContent = "View and apply for active operations";
+      } else if (targetId === 'view-history') {
+        pageTitle.textContent = "MY HISTORY";
+        pageSubtitle.textContent = "Your past operation deployments";
+        if (!historyLoaded) {
+          loadHistory();
+          historyLoaded = true;
+        }
       }
-    } else {
-      historyModal.style.opacity = '0';
-      setTimeout(() => historyModal.style.display = 'none', 300);
-    }
-  };
+    });
+  });
 
   // Logout
   logoutBtn.addEventListener('click', () => {
