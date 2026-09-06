@@ -5,16 +5,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const profileName = document.getElementById('profile-name');
   const profileStatus = document.getElementById('profile-status');
   const profileAvatar = document.getElementById('profile-avatar-img');
-  
-  const navLinks = document.querySelectorAll('.nav-links li');
-  const views = document.querySelectorAll('.view');
-  const pageTitle = document.getElementById('page-title');
-  const pageSubtitle = document.getElementById('page-subtitle');
-  
   const jobBoardGrid = document.getElementById('job-board-grid');
   const historyTableBody = document.getElementById('history-table-body');
-  
   const logoutBtn = document.getElementById('logout-btn');
+  const historyModal = document.getElementById('history-modal');
   
   // Get Session ID from URL or localStorage
   const urlParams = new URLSearchParams(window.location.search);
@@ -22,43 +16,33 @@ document.addEventListener('DOMContentLoaded', () => {
   
   if (sessionId) {
     localStorage.setItem('wpco_dashboard_session', sessionId);
-    // Clean URL
     window.history.replaceState({}, document.title, window.location.pathname);
   } else {
     sessionId = localStorage.getItem('wpco_dashboard_session');
   }
   
   if (!sessionId) {
-    // Redirect to login
     window.location.href = "https://api.worldpeacecontrol.org/v1/discord/login?redirect=dashboard";
     return;
   }
   
-  // Setup Navigation
-  navLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      // Remove active class from all
-      navLinks.forEach(l => l.classList.remove('active'));
-      views.forEach(v => v.classList.remove('active'));
-      
-      // Add active to clicked
-      link.classList.add('active');
-      const target = link.getAttribute('data-target');
-      document.getElementById(`view-${target}`).classList.add('active');
-      
-      // Update Headers
-      if (target === 'job-board') {
-        pageTitle.textContent = "Job Board";
-        pageSubtitle.textContent = "View and apply for active operations.";
-        loadJobBoard();
-      } else if (target === 'history') {
-        pageTitle.textContent = "Operations History";
-        pageSubtitle.textContent = "Review your past operations.";
+  // Modal Logic
+  let historyLoaded = false;
+  window.toggleHistoryModal = function() {
+    if (historyModal.style.display === 'none') {
+      historyModal.style.display = 'flex';
+      // tiny delay to allow display:flex to apply before changing opacity
+      setTimeout(() => historyModal.style.opacity = '1', 10);
+      if (!historyLoaded) {
         loadHistory();
+        historyLoaded = true;
       }
-    });
-  });
-  
+    } else {
+      historyModal.style.opacity = '0';
+      setTimeout(() => historyModal.style.display = 'none', 300);
+    }
+  };
+
   // Logout
   logoutBtn.addEventListener('click', () => {
     localStorage.removeItem('wpco_dashboard_session');
@@ -96,12 +80,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (data) {
       profileName.textContent = data.discord_username;
       profileAvatar.src = `https://cdn.discordapp.com/avatars/${data.discord_id}/avatar.webp?size=128`;
-      // Avatar might fail if user has no avatar, fallback is handled by discord CDN or we can catch error
       profileAvatar.onerror = () => { profileAvatar.src = 'assets/logo.webp'; };
       
       profileStatus.classList.remove('loading');
       if (data.is_verified) {
-        profileStatus.textContent = "Verified";
+        profileStatus.textContent = data.rank || "Unknown Rank";
         profileStatus.classList.add('verified');
       } else {
         profileStatus.textContent = "Unverified";

@@ -18,40 +18,20 @@
   <!-- WebGL Background -->
   <canvas id="topo-bg"></canvas>
 
-  <div class="dashboard-wrapper">
-    <!-- Sidebar Navigation -->
-    <nav class="sidebar">
-      <div class="sidebar-header">
-        <img src="assets/logo.webp" alt="WPCO Logo" class="sidebar-logo" draggable="false" />
-        <h2>WPCO</h2>
-      </div>
+  <main>
+    <div class="glass-container dashboard-container" style="padding: 2.5rem 3rem; position: relative; max-width: 900px; width: 90%;">
       
-      <ul class="nav-links">
-        <li class="active" data-target="job-board">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
-          Job Board
-        </li>
-        <li data-target="history">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-          Operations History
-        </li>
-      </ul>
-      
-      <div class="sidebar-footer">
-        <button id="logout-btn" class="btn-secondary">Log Out</button>
-      </div>
-    </nav>
-
-    <!-- Main Content Area -->
-    <main class="main-content">
-      <!-- Topbar -->
+      <!-- Topbar / Header -->
       <header class="topbar">
-        <div class="topbar-title">
-          <h1 id="page-title">Job Board</h1>
-          <p id="page-subtitle">View and apply for active operations.</p>
+        <div class="topbar-left">
+          <img src="assets/logo.webp" alt="WPCO Logo" class="dashboard-logo" draggable="false" />
+          <div class="topbar-title">
+            <h1 id="page-title">OPERATIONS</h1>
+            <p id="page-subtitle">View and apply for active operations</p>
+          </div>
         </div>
         
-        <div class="user-profile">
+        <div class="user-profile" id="user-profile-widget" onclick="toggleHistoryModal()">
           <div class="profile-info">
             <span id="profile-name">Loading...</span>
             <span id="profile-status" class="status-badge loading">Authenticating...</span>
@@ -62,29 +42,30 @@
         </div>
       </header>
 
-      <!-- Content Views -->
-      <div class="views-container">
+      <!-- Operations View -->
+      <section id="view-operations" class="view active">
+        <div class="filter-bar">
+          <input type="text" id="job-search" placeholder="Search operations..." class="search-input" />
+          <select id="job-filter" class="filter-select">
+            <option value="all">All Types</option>
+            <option value="Combat">Combat</option>
+            <option value="Training">Training</option>
+            <option value="Recon">Recon</option>
+          </select>
+        </div>
         
-        <!-- Job Board View -->
-        <section id="view-job-board" class="view active">
-          <div class="filter-bar">
-            <input type="text" id="job-search" placeholder="Search operations..." class="search-input" />
-            <select id="job-filter" class="filter-select">
-              <option value="all">All Types</option>
-              <option value="Combat">Combat</option>
-              <option value="Training">Training</option>
-              <option value="Recon">Recon</option>
-            </select>
-          </div>
-          
-          <div id="job-board-grid" class="cards-grid">
-            <!-- Populated by JS -->
-            <div class="loading-spinner">Loading Operations...</div>
-          </div>
-        </section>
+        <div id="job-board-grid" class="cards-grid">
+          <div class="loading-spinner">Loading Operations...</div>
+        </div>
+      </section>
 
-        <!-- History View -->
-        <section id="view-history" class="view">
+      <!-- History Modal Overlay -->
+      <div id="history-modal" class="modal-overlay" style="display: none; opacity: 0; transition: opacity 0.3s ease;">
+        <div class="modal-content glass-container" style="padding: 2rem;">
+          <button class="close-modal-btn" onclick="toggleHistoryModal()">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"></path></svg>
+          </button>
+          <h2 style="margin-top: 0; font-size: 1.8rem; margin-bottom: 1.5rem;">Operations History</h2>
           <div class="history-table-container">
             <table class="history-table">
               <thead>
@@ -96,16 +77,17 @@
                 </tr>
               </thead>
               <tbody id="history-table-body">
-                <!-- Populated by JS -->
                 <tr><td colspan="4" class="text-center">Loading History...</td></tr>
               </tbody>
             </table>
           </div>
-        </section>
-
+          <button id="logout-btn" class="glass-button" style="margin-top: 2rem; background: rgba(239, 68, 68, 0.2); border: 1px solid rgba(239, 68, 68, 0.3); color: #fca5a5;">
+            Log Out
+          </button>
+        </div>
       </div>
-    </main>
-  </div>
+    </div>
+  </main>
 
   <script src="main.js"></script>
   <script src="dashboard.js"></script>
