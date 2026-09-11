@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WPCO | Account Verification</title>
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../dashboard.css">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -68,11 +68,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
-        /* Smooth transitions for container and views */
-        .glass-container {
-            transition: max-width 0.4s cubic-bezier(0.4, 0, 0.2, 1), transform 0.4s ease;
-            scroll-behavior: smooth;
-        }
+
         #main-view {
             transition: opacity 0.3s ease;
         }
@@ -112,7 +108,7 @@
     <canvas id="topo-bg"></canvas>
 
     <main>
-        <div class="glass-container" style="padding: 3.5rem 3rem; position: relative;">
+        <div class="auth-container">
             
             <!-- Main View -->
             <div id="main-view" style="display: flex; flex-direction: column; align-items: center; width: 100%; opacity: 1;">
@@ -203,8 +199,7 @@
             setTimeout(async () => {
                 mainView.style.display = 'none';
                 
-                // Expand container width and reset scroll
-                const container = document.querySelector('.glass-container');
+                const container = document.querySelector('.auth-container');
                 container.classList.add('legal-container');
                 container.scrollTop = 0;
                 
@@ -247,8 +242,7 @@
                 docView.style.display = 'none';
                 document.getElementById('doc-content').innerHTML = '';
                 
-                // Shrink container width and reset scroll
-                const container = document.querySelector('.glass-container');
+                const container = document.querySelector('.auth-container');
                 container.classList.remove('legal-container');
                 container.scrollTop = 0;
                 

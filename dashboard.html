@@ -45,7 +45,7 @@
       </aside>
 
       <!-- Main Content Area -->
-      <div class="glass-container dashboard-container">
+      <div class="dashboard-container">
         
         <!-- Topbar / Header -->
         <header class="topbar">
@@ -80,8 +80,10 @@
               </select>
             </div>
             
-            <div id="job-board-grid" class="cards-grid">
-              <div class="loading-spinner">Loading Operations...</div>
+            <div id="job-board-grid" class="events-grid">
+              <div class="event-banner skeleton" style="height: 160px;"></div>
+              <div class="event-banner skeleton" style="height: 160px;"></div>
+              <div class="event-banner skeleton" style="height: 160px;"></div>
             </div>
           </div>
         </section>
@@ -89,20 +91,11 @@
         <!-- History View -->
         <section id="view-history" class="view">
           <div class="dashboard-content">
-            <div class="history-table-container">
-              <table class="history-table">
-                <thead>
-                  <tr>
-                    <th>Codename</th>
-                    <th>Type</th>
-                    <th>Host</th>
-                    <th>Concluded On</th>
-                  </tr>
-                </thead>
-                <tbody id="history-table-body">
-                  <tr><td colspan="4" class="text-center">Loading History...</td></tr>
-                </tbody>
-              </table>
+            <div id="history-table-body" class="match-history-list">
+              <div class="match-row skeleton" style="height: 70px;"></div>
+              <div class="match-row skeleton" style="height: 70px;"></div>
+              <div class="match-row skeleton" style="height: 70px;"></div>
+              <div class="match-row skeleton" style="height: 70px;"></div>
             </div>
           </div>
         </section>

@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ticket #5 Transcript | WPCO</title>
+  <meta name="theme-color" content="#050d17" />
+  <link rel="icon" type="image/webp" href="../assets/logo.webp" />
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../dashboard.css" />
+  <style>
+    .transcript-container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
+      color: #fff;
+    }
+    .ticket-header {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .ticket-header h1 {
+      margin: 0 0 0.5rem 0;
+      font-size: 1.8rem;
+    }
+    .ticket-meta {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+    
+    .chat-log {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .chat-message {
+      display: flex;
+      gap: 1rem;
+    }
+    .chat-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: var(--bg-surface);
+    }
+    .chat-content {
+      flex: 1;
+    }
+    .chat-header {
+      display: flex;
+      align-items: baseline;
+      gap: 0.75rem;
+      margin-bottom: 0.25rem;
+    }
+    .chat-username {
+      font-weight: 600;
+      color: #fff;
+    }
+    .chat-timestamp {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+    .chat-text {
+      line-height: 1.5;
+      color: #ddd;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    
+    .attachment-preview {
+      max-width: 300px;
+      max-height: 300px;
+      border-radius: 8px;
+      margin-top: 0.5rem;
+      border: 1px solid var(--border-color);
+    }
+    .attachment-link {
+      display: inline-block;
+      margin-top: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      color: var(--primary-color);
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+    }
+    .attachment-link:hover {
+      background: var(--primary-color);
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <!-- WebGL Background -->
+  <canvas id="topo-bg"></canvas>
+
+  <main>
+    <div class="dashboard-container" style="margin-left: 0;">
+      <div class="transcript-container">
+        
+        <div class="ticket-header">
+          <h1>Ticket #5 - Appeal</h1>
+          <div class="ticket-meta">
+            <div><strong>Creator ID:</strong> 993831932917981276</div>
+            <div><strong>Created:</strong> 2026-09-08 11:02:20</div>
+            <div><strong>Closed:</strong> 2026-09-08 11:43:04</div>
+            <div><strong>Closed By:</strong> 993831932917981276</div>
+          </div>
+          <div style="margin-top: 1rem; color: var(--text-secondary);">
+            <strong>Reason:</strong> Because
+          </div>
+          <div style="margin-top: 0.5rem; color: var(--text-secondary);">
+            <strong>Close Reason:</strong> User Closed: Because
+          </div>
+        </div>
+        
+        <div class="chat-log">
+
+          <div class="chat-message">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1102518586792222760/3d7b7577e055f51f31762e4f8fb4e506.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+            <div class="chat-content">
+              <div class="chat-header">
+                <span class="chat-username">infamy4life</span>
+                <span class="chat-timestamp">2026-09-08 11:02:43</span>
+              </div>
+              <div class="chat-text">NAW</div>
+
+            </div>
+          </div>
+
+          <div class="chat-message">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/993831932917981276/d11c0bd1c832499b5d3493ae036d6d3f.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+            <div class="chat-content">
+              <div class="chat-header">
+                <span class="chat-username">ericplays_143</span>
+                <span class="chat-timestamp">2026-09-08 11:02:55</span>
+              </div>
+              <div class="chat-text">Plz appeal</div>
+
+            </div>
+          </div>
+
+          <div class="chat-message">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/993831932917981276/d11c0bd1c832499b5d3493ae036d6d3f.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+            <div class="chat-content">
+              <div class="chat-header">
+                <span class="chat-username">ericplays_143</span>
+                <span class="chat-timestamp">2026-09-08 11:02:59</span>
+              </div>
+              <div class="chat-text">Legacy abused powers to punish me</div>
+
+            </div>
+          </div>
+
+          <div class="chat-message">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/993831932917981276/d11c0bd1c832499b5d3493ae036d6d3f.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+            <div class="chat-content">
+              <div class="chat-header">
+                <span class="chat-username">ericplays_143</span>
+                <span class="chat-timestamp">2026-09-08 11:03:00</span>
+              </div>
+              <div class="chat-text">He bad bad</div>
+
+            </div>
+          </div>
+
+          <div class="chat-message">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/993831932917981276/d11c0bd1c832499b5d3493ae036d6d3f.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+            <div class="chat-content">
+              <div class="chat-header">
+                <span class="chat-username">ericplays_143</span>
+                <span class="chat-timestamp">2026-09-08 11:03:03</span>
+              </div>
+              <div class="chat-text">Me good good</div>
+
+            </div>
+          </div>
+
+          <div class="chat-message">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/993831932917981276/d11c0bd1c832499b5d3493ae036d6d3f.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+            <div class="chat-content">
+              <div class="chat-header">
+                <span class="chat-username">ericplays_143</span>
+                <span class="chat-timestamp">2026-09-08 11:03:04</span>
+              </div>
+              <div class="chat-text">Ok?</div>
+
+            </div>
+          </div>
+
+          <div class="chat-message">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/embed/avatars/1.png" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+            <div class="chat-content">
+              <div class="chat-header">
+                <span class="chat-username">karlchastin</span>
+                <span class="chat-timestamp">2026-09-08 11:03:05</span>
+              </div>
+              <div class="chat-text">WHAT</div>
+
+            </div>
+          </div>
+
+          <div class="chat-message">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/embed/avatars/1.png" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+            <div class="chat-content">
+              <div class="chat-header">
+                <span class="chat-username">karlchastin</span>
+                <span class="chat-timestamp">2026-09-08 11:03:14</span>
+              </div>
+              <div class="chat-text">NYAWKLJHAIWHAWK:JH:AWKJ</div>
+
+            </div>
+          </div>
+
+          <div class="chat-message">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/embed/avatars/1.png" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+            <div class="chat-content">
+              <div class="chat-header">
+                <span class="chat-username">karlchastin</span>
+                <span class="chat-timestamp">2026-09-08 11:03:15</span>
+              </div>
+              <div class="chat-text">okay wait</div>
+
+            </div>
+          </div>
+
+          <div class="chat-message">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/embed/avatars/1.png" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+            <div class="chat-content">
+              <div class="chat-header">
+                <span class="chat-username">karlchastin</span>
+                <span class="chat-timestamp">2026-09-08 11:03:20</span>
+              </div>
+              <div class="chat-text">the close ticket doesn't work</div>
+
+            </div>
+          </div>
+
+          <div class="chat-message">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/embed/avatars/1.png" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+            <div class="chat-content">
+              <div class="chat-header">
+                <span class="chat-username">karlchastin</span>
+                <span class="chat-timestamp">2026-09-08 11:03:49</span>
+              </div>
+              <div class="chat-text">just for reference, only Organization Command and the ticket opener can close the ticket</div>
+
+            </div>
+          </div>
+
+          <div class="chat-message">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/embed/avatars/1.png" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+            <div class="chat-content">
+              <div class="chat-header">
+                <span class="chat-username">karlchastin</span>
+                <span class="chat-timestamp">2026-09-08 11:03:56</span>
+              </div>
+              <div class="chat-text">as long as it's an appeal</div>
+
+            </div>
+          </div>
+
+          <div class="chat-message">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/993831932917981276/d11c0bd1c832499b5d3493ae036d6d3f.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+            <div class="chat-content">
+              <div class="chat-header">
+                <span class="chat-username">ericplays_143</span>
+                <span class="chat-timestamp">2026-09-08 11:04:04</span>
+              </div>
+              <div class="chat-text">Guys</div>
+
+            </div>
+          </div>
+
+          <div class="chat-message">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/993831932917981276/d11c0bd1c832499b5d3493ae036d6d3f.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+            <div class="chat-content">
+              <div class="chat-header">
+                <span class="chat-username">ericplays_143</span>
+                <span class="chat-timestamp">2026-09-08 11:04:06</span>
+              </div>
+              <div class="chat-text">What about the appeal</div>
+
+            </div>
+          </div>
+
+          <div class="chat-message">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/embed/avatars/1.png" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+            <div class="chat-content">
+              <div class="chat-header">
+                <span class="chat-username">karlchastin</span>
+                <span class="chat-timestamp">2026-09-08 11:04:07</span>
+              </div>
+              <div class="chat-text">cause OC has the final say, according to Noone</div>
+
+            </div>
+          </div>
+
+          <div class="chat-message">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/embed/avatars/1.png" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+            <div class="chat-content">
+              <div class="chat-header">
+                <span class="chat-username">karlchastin</span>
+                <span class="chat-timestamp">2026-09-08 11:04:17</span>
+              </div>
+              <div class="chat-text">I can't do anything :'3</div>
+
+            </div>
+          </div>
+
+          <div class="chat-message">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/embed/avatars/1.png" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+            <div class="chat-content">
+              <div class="chat-header">
+                <span class="chat-username">karlchastin</span>
+                <span class="chat-timestamp">2026-09-08 11:04:19</span>
+              </div>
+              <div class="chat-text">Ble</div>
+
+            </div>
+          </div>
+
+          <div class="chat-message">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/embed/avatars/1.png" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+            <div class="chat-content">
+              <div class="chat-header">
+                <span class="chat-username">karlchastin</span>
+                <span class="chat-timestamp">2026-09-08 11:04:23</span>
+              </div>
+              <div class="chat-text">You have that FOREVER</div>
+
+            </div>
+          </div>
+
+          <div class="chat-message">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/embed/avatars/1.png" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+            <div class="chat-content">
+              <div class="chat-header">
+                <span class="chat-username">karlchastin</span>
+                <span class="chat-timestamp">2026-09-08 11:04:34</span>
+              </div>
+              <div class="chat-text">No, just kidding</div>
+
+            </div>
+          </div>
+
+          <div class="chat-message">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/embed/avatars/1.png" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+            <div class="chat-content">
+              <div class="chat-header">
+                <span class="chat-username">karlchastin</span>
+                <span class="chat-timestamp">2026-09-08 11:04:37</span>
+              </div>
+              <div class="chat-text">anyway</div>
+
+            </div>
+          </div>
+
+          <div class="chat-message">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/993831932917981276/d11c0bd1c832499b5d3493ae036d6d3f.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+            <div class="chat-content">
+              <div class="chat-header">
+                <span class="chat-username">ericplays_143</span>
+                <span class="chat-timestamp">2026-09-08 11:05:19</span>
+              </div>
+              <div class="chat-text">https://klipy.com/gifs/cut-it-4</div>
+
+            </div>
+          </div>
+
+          <div class="chat-message">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/embed/avatars/1.png" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+            <div class="chat-content">
+              <div class="chat-header">
+                <span class="chat-username">karlchastin</span>
+                <span class="chat-timestamp">2026-09-08 11:05:24</span>
+              </div>
+              <div class="chat-text">&lt;@1102518586792222760&gt; I think you can close this and grant appeal</div>
+
+            </div>
+          </div>
+
+          <div class="chat-message">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/993831932917981276/d11c0bd1c832499b5d3493ae036d6d3f.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+            <div class="chat-content">
+              <div class="chat-header">
+                <span class="chat-username">ericplays_143</span>
+                <span class="chat-timestamp">2026-09-08 11:05:25</span>
+              </div>
+              <div class="chat-text">I'm gonna have to execute you</div>
+
+            </div>
+          </div>
+
+          <div class="chat-message">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/embed/avatars/1.png" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+            <div class="chat-content">
+              <div class="chat-header">
+                <span class="chat-username">karlchastin</span>
+                <span class="chat-timestamp">2026-09-08 11:05:29</span>
+              </div>
+              <div class="chat-text">NUH UH</div>
+
+            </div>
+          </div>
+
+          <div class="chat-message">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/embed/avatars/1.png" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+            <div class="chat-content">
+              <div class="chat-header">
+                <span class="chat-username">karlchastin</span>
+                <span class="chat-timestamp">2026-09-08 11:06:00</span>
+              </div>
+              <div class="chat-text">but</div>
+
+            </div>
+          </div>
+
+          <div class="chat-message">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/embed/avatars/1.png" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+            <div class="chat-content">
+              <div class="chat-header">
+                <span class="chat-username">karlchastin</span>
+                <span class="chat-timestamp">2026-09-08 11:06:03</span>
+              </div>
+              <div class="chat-text">i'm MT</div>
+
+            </div>
+          </div>
+
+          <div class="chat-message">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/993831932917981276/d11c0bd1c832499b5d3493ae036d6d3f.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+            <div class="chat-content">
+              <div class="chat-header">
+                <span class="chat-username">ericplays_143</span>
+                <span class="chat-timestamp">2026-09-08 11:06:04</span>
+              </div>
+              <div class="chat-text">I love this bot already</div>
+
+            </div>
+          </div>
+
+          <div class="chat-message">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/993831932917981276/d11c0bd1c832499b5d3493ae036d6d3f.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+            <div class="chat-content">
+              <div class="chat-header">
+                <span class="chat-username">ericplays_143</span>
+                <span class="chat-timestamp">2026-09-08 11:06:08</span>
+              </div>
+              <div class="chat-text">I gotta marry it</div>
+
+            </div>
+          </div>
+
+          <div class="chat-message">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/embed/avatars/1.png" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+            <div class="chat-content">
+              <div class="chat-header">
+                <span class="chat-username">karlchastin</span>
+                <span class="chat-timestamp">2026-09-08 11:06:09</span>
+              </div>
+              <div class="chat-text">YOU follow me orders</div>
+
+            </div>
+          </div>
+
+          <div class="chat-message">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/993831932917981276/d11c0bd1c832499b5d3493ae036d6d3f.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+            <div class="chat-content">
+              <div class="chat-header">
+                <span class="chat-username">ericplays_143</span>
+                <span class="chat-timestamp">2026-09-08 11:06:11</span>
+              </div>
+              <div class="chat-text">I'm sorry chas</div>
+
+            </div>
+          </div>
+
+          <div class="chat-message">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/embed/avatars/1.png" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+            <div class="chat-content">
+              <div class="chat-header">
+                <span class="chat-username">karlchastin</span>
+                <span class="chat-timestamp">2026-09-08 11:06:12</span>
+              </div>
+              <div class="chat-text">WHAT</div>
+
+            </div>
+          </div>
+
+          <div class="chat-message">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/embed/avatars/1.png" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+            <div class="chat-content">
+              <div class="chat-header">
+                <span class="chat-username">karlchastin</span>
+                <span class="chat-timestamp">2026-09-08 11:06:16</span>
+              </div>
+              <div class="chat-text">BUT IT'S NOT ALIVE</div>
+
+            </div>
+          </div>
+
+          <div class="chat-message">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/993831932917981276/d11c0bd1c832499b5d3493ae036d6d3f.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+            <div class="chat-content">
+              <div class="chat-header">
+                <span class="chat-username">ericplays_143</span>
+                <span class="chat-timestamp">2026-09-08 11:06:22</span>
+              </div>
+              <div class="chat-text">&lt;@1540845780808769626&gt; will you marry me</div>
+
+            </div>
+          </div>
+
+          <div class="chat-message">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/embed/avatars/1.png" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+            <div class="chat-content">
+              <div class="chat-header">
+                <span class="chat-username">karlchastin</span>
+                <span class="chat-timestamp">2026-09-08 11:06:29</span>
+              </div>
+              <div class="chat-text">IT DOESN'T EVEN TALK</div>
+
+            </div>
+          </div>
+
+          <div class="chat-message">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/993831932917981276/d11c0bd1c832499b5d3493ae036d6d3f.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+            <div class="chat-content">
+              <div class="chat-header">
+                <span class="chat-username">ericplays_143</span>
+                <span class="chat-timestamp">2026-09-08 11:06:31</span>
+              </div>
+              <div class="chat-text">It is, in my heart ♥️</div>
+
+            </div>
+          </div>
+
+          <div class="chat-message">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/embed/avatars/1.png" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+            <div class="chat-content">
+              <div class="chat-header">
+                <span class="chat-username">karlchastin</span>
+                <span class="chat-timestamp">2026-09-08 11:06:33</span>
+              </div>
+              <div class="chat-text">BALD</div>
+
+            </div>
+          </div>
+
+          <div class="chat-message">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/993831932917981276/d11c0bd1c832499b5d3493ae036d6d3f.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+            <div class="chat-content">
+              <div class="chat-header">
+                <span class="chat-username">ericplays_143</span>
+                <span class="chat-timestamp">2026-09-08 11:06:39</span>
+              </div>
+              <div class="chat-text">It will, in my heart ♥️</div>
+
+            </div>
+          </div>
+
+          <div class="chat-message">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/993831932917981276/d11c0bd1c832499b5d3493ae036d6d3f.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+            <div class="chat-content">
+              <div class="chat-header">
+                <span class="chat-username">ericplays_143</span>
+                <span class="chat-timestamp">2026-09-08 11:08:50</span>
+              </div>
+              <div class="chat-text"></div>
+<div><span class="attachment-link">🖼️ 1546839722222034995_Screenshot_20260908_190834_Discord.jpg</span></div>
+            </div>
+          </div>
+
+          <div class="chat-message">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/993831932917981276/d11c0bd1c832499b5d3493ae036d6d3f.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+            <div class="chat-content">
+              <div class="chat-header">
+                <span class="chat-username">ericplays_143</span>
+                <span class="chat-timestamp">2026-09-08 11:08:55</span>
+              </div>
+              <div class="chat-text">This guy harassing me in dms bruh</div>
+
+            </div>
+          </div>
+
+          <div class="chat-message">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/993831932917981276/d11c0bd1c832499b5d3493ae036d6d3f.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+            <div class="chat-content">
+              <div class="chat-header">
+                <span class="chat-username">ericplays_143</span>
+                <span class="chat-timestamp">2026-09-08 11:09:01</span>
+              </div>
+              <div class="chat-text">Prob an compromised account</div>
+
+            </div>
+          </div>
+
+          <div class="chat-message">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/embed/avatars/1.png" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+            <div class="chat-content">
+              <div class="chat-header">
+                <span class="chat-username">karlchastin</span>
+                <span class="chat-timestamp">2026-09-08 11:09:08</span>
+              </div>
+              <div class="chat-text">AKJSFHJKLAFHWLKJAHSFLKJAWFH</div>
+
+            </div>
+          </div>
+
+          <div class="chat-message">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/993831932917981276/d11c0bd1c832499b5d3493ae036d6d3f.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+            <div class="chat-content">
+              <div class="chat-header">
+                <span class="chat-username">ericplays_143</span>
+                <span class="chat-timestamp">2026-09-08 11:09:28</span>
+              </div>
+              <div class="chat-text">I actually reported btw</div>
+
+            </div>
+          </div>
+
+          <div class="chat-message">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/993831932917981276/d11c0bd1c832499b5d3493ae036d6d3f.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+            <div class="chat-content">
+              <div class="chat-header">
+                <span class="chat-username">ericplays_143</span>
+                <span class="chat-timestamp">2026-09-08 11:09:29</span>
+              </div>
+              <div class="chat-text">If it gets banned</div>
+
+            </div>
+          </div>
+
+          <div class="chat-message">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/993831932917981276/d11c0bd1c832499b5d3493ae036d6d3f.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+            <div class="chat-content">
+              <div class="chat-header">
+                <span class="chat-username">ericplays_143</span>
+                <span class="chat-timestamp">2026-09-08 11:09:30</span>
+              </div>
+              <div class="chat-text">Uhm</div>
+
+            </div>
+          </div>
+
+          <div class="chat-message">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1102518586792222760/3d7b7577e055f51f31762e4f8fb4e506.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+            <div class="chat-content">
+              <div class="chat-header">
+                <span class="chat-username">infamy4life</span>
+                <span class="chat-timestamp">2026-09-08 11:10:09</span>
+              </div>
+              <div class="chat-text">i cant</div>
+
+            </div>
+          </div>
+
+          <div class="chat-message">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1102518586792222760/3d7b7577e055f51f31762e4f8fb4e506.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+            <div class="chat-content">
+              <div class="chat-header">
+                <span class="chat-username">infamy4life</span>
+                <span class="chat-timestamp">2026-09-08 11:10:10</span>
+              </div>
+              <div class="chat-text">close the ticket</div>
+
+            </div>
+          </div>
+
+          <div class="chat-message">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/embed/avatars/1.png" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+            <div class="chat-content">
+              <div class="chat-header">
+                <span class="chat-username">karlchastin</span>
+                <span class="chat-timestamp">2026-09-08 11:10:24</span>
+              </div>
+              <div class="chat-text">yea i see it</div>
+
+            </div>
+          </div>
+
+          <div class="chat-message">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/embed/avatars/1.png" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+            <div class="chat-content">
+              <div class="chat-header">
+                <span class="chat-username">karlchastin</span>
+                <span class="chat-timestamp">2026-09-08 11:10:24</span>
+              </div>
+              <div class="chat-text">hmmm</div>
+
+            </div>
+          </div>
+
+          <div class="chat-message">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/993831932917981276/d11c0bd1c832499b5d3493ae036d6d3f.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+            <div class="chat-content">
+              <div class="chat-header">
+                <span class="chat-username">ericplays_143</span>
+                <span class="chat-timestamp">2026-09-08 11:30:20</span>
+              </div>
+              <div class="chat-text">No</div>
+
+            </div>
+          </div>
+
+          <div class="chat-message">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/993831932917981276/d11c0bd1c832499b5d3493ae036d6d3f.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+            <div class="chat-content">
+              <div class="chat-header">
+                <span class="chat-username">ericplays_143</span>
+                <span class="chat-timestamp">2026-09-08 11:30:23</span>
+              </div>
+              <div class="chat-text">Don't close</div>
+
+            </div>
+          </div>
+
+          <div class="chat-message">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/993831932917981276/d11c0bd1c832499b5d3493ae036d6d3f.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+            <div class="chat-content">
+              <div class="chat-header">
+                <span class="chat-username">ericplays_143</span>
+                <span class="chat-timestamp">2026-09-08 11:30:25</span>
+              </div>
+              <div class="chat-text">Ongoing case</div>
+
+            </div>
+          </div>
+
+          <div class="chat-message">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/993831932917981276/d11c0bd1c832499b5d3493ae036d6d3f.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+            <div class="chat-content">
+              <div class="chat-header">
+                <span class="chat-username">ericplays_143</span>
+                <span class="chat-timestamp">2026-09-08 11:30:35</span>
+              </div>
+              <div class="chat-text">&lt;@1102518586792222760&gt; appeal plz</div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+  
+  <script>
+    document.body.style.background = "#050d17";
+  </script>
+</body>
+</html>

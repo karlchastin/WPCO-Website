@@ -114,7 +114,11 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Load Job Board
   async function loadJobBoard() {
-    jobBoardGrid.innerHTML = '<div class="loading-spinner">Loading Operations...</div>';
+    jobBoardGrid.innerHTML = `
+      <div class="event-banner skeleton" style="height: 160px;"></div>
+      <div class="event-banner skeleton" style="height: 160px;"></div>
+      <div class="event-banner skeleton" style="height: 160px;"></div>
+    `;
     const data = await fetchAPI('/operations/active');
     
     if (data && data.operations) {
@@ -127,26 +131,51 @@ document.addEventListener('DOMContentLoaded', () => {
       data.operations.forEach(op => {
         const date = new Date(op.start_time).toLocaleString();
         
+        let typeColor = 'var(--accent-neon)';
+        let typeBorder = 'rgba(58, 134, 255, 0.3)';
+        let typeBg = 'rgba(58, 134, 255, 0.15)';
+        let typeShadow = 'rgba(58, 134, 255, 0.2)';
+        let bgPatternClass = 'standard';
+        
+        if (op.operation_type.toLowerCase().includes('combat')) {
+          typeColor = '#fca5a5';
+          typeBorder = 'rgba(239, 68, 68, 0.3)';
+          typeBg = 'rgba(239, 68, 68, 0.15)';
+          typeShadow = 'rgba(239, 68, 68, 0.2)';
+          bgPatternClass = 'combat';
+        } else if (op.operation_type.toLowerCase().includes('recon')) {
+          typeColor = '#fde047';
+          typeBorder = 'rgba(234, 179, 8, 0.3)';
+          typeBg = 'rgba(234, 179, 8, 0.15)';
+          typeShadow = 'rgba(234, 179, 8, 0.2)';
+          bgPatternClass = 'recon';
+        }
+        
         const card = document.createElement('div');
-        card.className = 'op-card';
+        card.className = 'event-banner';
         card.innerHTML = `
-          <div class="op-header">
-            <h3 class="op-title">${op.operation_name}</h3>
-            <span class="op-type">${op.operation_type}</span>
-          </div>
-          <p class="op-brief">${op.briefing || "No briefing provided."}</p>
-          <div class="op-meta">
-            <div title="Host">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-              ${op.host_name}
+          <div class="event-bg-pattern ${bgPatternClass}"></div>
+          <div class="event-content">
+            <span class="event-type-badge" style="color: ${typeColor}; background: ${typeBg}; border: 1px solid ${typeBorder}; box-shadow: 0 0 10px ${typeShadow};">${op.operation_type}</span>
+            <h3 class="event-title">${op.operation_name}</h3>
+            <p class="event-brief">${op.briefing || "No briefing provided."}</p>
+            <div class="event-meta">
+              <div class="event-meta-item" title="Host">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                ${op.host_name}
+              </div>
+              <div class="event-meta-item" title="Operatives">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                ${op.current_count}/${op.required_count}
+              </div>
+              <div class="event-meta-item" title="Time Started">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                ${date}
+              </div>
             </div>
-            <div title="Operatives">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-              ${op.current_count}/${op.required_count}
-            </div>
-            <div title="Time Started">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-              ${date}
+            <div class="event-action">
+              Deploy
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </div>
           </div>
         `;
@@ -157,26 +186,48 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Load History
   async function loadHistory() {
-    historyTableBody.innerHTML = '<tr><td colspan="4" class="text-center">Loading History...</td></tr>';
+    historyTableBody.innerHTML = `
+      <div class="match-row skeleton" style="height: 70px;"></div>
+      <div class="match-row skeleton" style="height: 70px;"></div>
+      <div class="match-row skeleton" style="height: 70px;"></div>
+      <div class="match-row skeleton" style="height: 70px;"></div>
+    `;
     const data = await fetchAPI('/operations/history');
     
     if (data && data.history) {
       if (data.history.length === 0) {
-        historyTableBody.innerHTML = '<tr><td colspan="4" class="text-center" style="color: var(--text-muted)">You have not participated in any operations yet.</td></tr>';
+        historyTableBody.innerHTML = '<div style="color: var(--text-muted); text-align: center; padding: 2rem;">No matches in history.</div>';
         return;
       }
       
       historyTableBody.innerHTML = '';
       data.history.forEach(op => {
         const date = new Date(op.end_time).toLocaleString();
-        const tr = document.createElement('tr');
-        tr.innerHTML = `
-          <td><strong>${op.operation_name}</strong></td>
-          <td><span class="status-badge" style="background: rgba(255,255,255,0.1); border:none">${op.operation_type}</span></td>
-          <td>${op.host_name}</td>
-          <td>${date}</td>
+        
+        let typeClass = 'standard';
+        if (op.operation_type.toLowerCase().includes('combat')) typeClass = 'combat';
+        else if (op.operation_type.toLowerCase().includes('recon')) typeClass = 'recon';
+        
+        const row = document.createElement('div');
+        row.className = `match-row ${typeClass}`;
+        row.innerHTML = `
+          <div class="match-info">
+            <span class="match-title">${op.operation_name}</span>
+            <span class="match-type">${op.operation_type}</span>
+          </div>
+          <div class="match-stats">
+            <span class="match-label">Host</span>
+            <span class="match-host">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+              ${op.host_name}
+            </span>
+          </div>
+          <div class="match-time">
+            <span class="match-date">${date}</span>
+            <span class="match-status">Concluded</span>
+          </div>
         `;
-        historyTableBody.appendChild(tr);
+        historyTableBody.appendChild(row);
       });
     }
   }
