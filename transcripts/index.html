@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WPCO Transcripts Dashboard</title>
+  <meta name="theme-color" content="#050d17" />
+  <link rel="icon" type="image/webp" href="../assets/logo.webp" />
+  
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../dashboard.css" />
+  <style>
+    html, body { overflow-y: auto !important; height: auto !important; min-height: 100vh; background: #020617; }
+    main { height: auto !important; min-height: 100vh; padding: 4rem 2rem; display: block !important; }
+    
+    .dashboard-container { height: auto !important; overflow: visible !important; max-width: 1200px; margin: 0 auto; }
+    
+    .header-section {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .header-section h1 {
+      font-size: 2.5rem;
+      background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+    }
+    .header-section p { color: var(--text-muted, #94a3b8); font-size: 1.1rem; }
+    
+    .ticket-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
+    }
+    
+    .ticket-card {
+      background: var(--surface-1, rgba(15, 23, 42, 0.65));
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--glass-border-light, rgba(255, 255, 255, 0.15));
+      border-radius: 16px;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+    .ticket-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(58, 134, 255, 0.4);
+      box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5), 0 0 20px rgba(58, 134, 255, 0.15);
+    }
+    .ticket-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; height: 4px;
+      background: linear-gradient(90deg, #3a86ff, #60a5fa);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .ticket-card:hover::before { opacity: 1; }
+    
+    .tc-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+    .tc-id {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: #fff;
+    }
+    .tc-type {
+      background: rgba(58, 134, 255, 0.2);
+      color: #93c5fd;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .tc-body { flex: 1; }
+    .tc-label {
+      color: var(--text-muted, #94a3b8);
+      font-size: 0.85rem;
+      margin-bottom: 0.25rem;
+    }
+    .tc-value {
+      color: #e2e8f0;
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+      line-height: 1.4;
+    }
+    .tc-footer {
+      margin-top: 0.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      display: flex;
+      justify-content: space-between;
+      color: var(--text-muted, #94a3b8);
+      font-size: 0.8rem;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="topo-bg" style="position: fixed; top: 0; left: 0; z-index: -1;"></canvas>
+
+  <main>
+    <div class="dashboard-container">
+      <div class="header-section">
+        <h1>Transcripts Dashboard</h1>
+        <p>Secure archive of all closed World Peace Control Operations tickets.</p>
+      </div>
+      
+      <div class="ticket-grid">
+
+        <a href="1e88f5144cb91f3c.html" class="ticket-card">
+          <div class="tc-header">
+            <span class="tc-id">Ticket #6</span>
+            <span class="tc-type">Appeal</span>
+          </div>
+          <div class="tc-body">
+            <div class="tc-label">Initial Reason:</div>
+            <div class="tc-value">testing</div>
+            
+            <div class="tc-label">Closure Outcome:</div>
+            <div class="tc-value">Outcome: Granted</div>
+          </div>
+          <div class="tc-footer">
+            <span>User ID: 751049879630905345</span>
+            <span>2026-09-09</span>
+          </div>
+        </a>
+
+        <a href="be82a18d6e7ba66c.html" class="ticket-card">
+          <div class="tc-header">
+            <span class="tc-id">Ticket #5</span>
+            <span class="tc-type">Appeal</span>
+          </div>
+          <div class="tc-body">
+            <div class="tc-label">Initial Reason:</div>
+            <div class="tc-value">Because</div>
+            
+            <div class="tc-label">Closure Outcome:</div>
+            <div class="tc-value">User Closed: Because</div>
+          </div>
+          <div class="tc-footer">
+            <span>User ID: 993831932917981276</span>
+            <span>2026-09-08</span>
+          </div>
+        </a>
+
+        <a href="1b226f555e385616.html" class="ticket-card">
+          <div class="tc-header">
+            <span class="tc-id">Ticket #4</span>
+            <span class="tc-type">Appeal</span>
+          </div>
+          <div class="tc-body">
+            <div class="tc-label">Initial Reason:</div>
+            <div class="tc-value">It was a test.</div>
+            
+            <div class="tc-label">Closure Outcome:</div>
+            <div class="tc-value">User Closed: Forgiven</div>
+          </div>
+          <div class="tc-footer">
+            <span>User ID: 330950042863271936</span>
+            <span>2026-09-08</span>
+          </div>
+        </a>
+
+        <a href="510bf20f29afba62.html" class="ticket-card">
+          <div class="tc-header">
+            <span class="tc-id">Ticket #3</span>
+            <span class="tc-type">Appeal</span>
+          </div>
+          <div class="tc-body">
+            <div class="tc-label">Initial Reason:</div>
+            <div class="tc-value">Vanished used a very very very very rude and disrespectful word so I accident...</div>
+            
+            <div class="tc-label">Closure Outcome:</div>
+            <div class="tc-value">Outcome: Denied</div>
+          </div>
+          <div class="tc-footer">
+            <span>User ID: 1304067793318182955</span>
+            <span>2026-09-11</span>
+          </div>
+        </a>
+
+        <a href="e33f180fcc406951.html" class="ticket-card">
+          <div class="tc-header">
+            <span class="tc-id">Ticket #2</span>
+            <span class="tc-type">Appeal</span>
+          </div>
+          <div class="tc-body">
+            <div class="tc-label">Initial Reason:</div>
+            <div class="tc-value">Testing only!</div>
+            
+            <div class="tc-label">Closure Outcome:</div>
+            <div class="tc-value">System Mass Close</div>
+          </div>
+          <div class="tc-footer">
+            <span>User ID: 330950042863271936</span>
+            <span>2026-09-07</span>
+          </div>
+        </a>
+
+        <a href="8edeccad251aba3b.html" class="ticket-card">
+          <div class="tc-header">
+            <span class="tc-id">Ticket #1</span>
+            <span class="tc-type">Appeal</span>
+          </div>
+          <div class="tc-body">
+            <div class="tc-label">Initial Reason:</div>
+            <div class="tc-value">Testing only!</div>
+            
+            <div class="tc-label">Closure Outcome:</div>
+            <div class="tc-value">System Mass Close</div>
+          </div>
+          <div class="tc-footer">
+            <span>User ID: 330950042863271936</span>
+            <span>2026-09-07</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </main>
+  
+  <script>
+    document.body.style.background = "#020617";
+  </script>
+</body>
+</html>
