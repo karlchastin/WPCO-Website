@@ -174,6 +174,124 @@
       background: var(--accent, #3a86ff);
       color: #fff;
     }
+    
+    .chat-deleted-badge {
+      font-size: 0.7rem;
+      color: #ef4444;
+      background: rgba(239, 68, 68, 0.15);
+      padding: 1px 6px;
+      border-radius: 4px;
+      margin-left: 6px;
+      vertical-align: middle;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .chat-edited-badge {
+      font-size: 0.75rem;
+      color: var(--text-muted, #94a3b8);
+      margin-left: 6px;
+      cursor: pointer;
+      vertical-align: middle;
+      text-decoration: underline;
+      text-decoration-style: dotted;
+    }
+    .chat-edited-badge:hover {
+      color: #cbd5e1;
+    }
+    
+    .chat-message.is-deleted {
+      opacity: 0.6;
+    }
+    .chat-message.is-deleted .chat-text {
+      color: #94a3b8;
+    }
+
+    /* Edit History Modal */
+    .edit-modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(2, 6, 23, 0.8);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .edit-modal.active {
+      display: flex;
+      opacity: 1;
+    }
+    .edit-modal-content {
+      background: var(--surface-1, rgba(15, 23, 42, 0.85));
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      width: 90%;
+      max-width: 600px;
+      max-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+      transform: translateY(20px);
+      transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .edit-modal.active .edit-modal-content {
+      transform: translateY(0);
+    }
+    .edit-modal-header {
+      padding: 1.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .edit-modal-header h3 {
+      margin: 0;
+      font-size: 1.25rem;
+      color: #fff;
+    }
+    .edit-modal-close {
+      background: none;
+      border: none;
+      color: #94a3b8;
+      font-size: 1.5rem;
+      cursor: pointer;
+      padding: 0.25rem 0.5rem;
+      line-height: 1;
+      border-radius: 6px;
+    }
+    .edit-modal-close:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+    }
+    .edit-modal-body {
+      padding: 1.5rem;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .edit-history-item {
+      padding: 1rem;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 8px;
+      border-left: 3px solid var(--accent, #3a86ff);
+    }
+    .edit-history-time {
+      font-size: 0.8rem;
+      color: #94a3b8;
+      margin-bottom: 0.5rem;
+    }
+    .edit-history-content {
+      color: #e2e8f0;
+      white-space: pre-wrap;
+      word-break: break-word;
+      font-size: 0.95rem;
+    }
   </style>
 </head>
 <body>
@@ -209,6 +327,8 @@
               <div class="chat-header">
                 <span class="chat-username">catamapp</span>
                 <span class="chat-timestamp">2026-09-09 14:55:52</span>
+                
+                
               </div>
               <div class="chat-text"><span class="discord-mention">@karlchastin</span></div>
 
@@ -220,8 +340,61 @@
     </div>
   </main>
   
+  <div class="edit-modal" id="editModal">
+    <div class="edit-modal-content">
+      <div class="edit-modal-header">
+        <h3>Edit History</h3>
+        <button class="edit-modal-close" onclick="closeEditModal()">&times;</button>
+      </div>
+      <div class="edit-modal-body" id="editModalBody">
+        <!-- History items injected here -->
+      </div>
+    </div>
+  </div>
+  
   <script>
     document.body.style.background = "#020617";
+    
+    function openEditModal(el) {
+      const editsStr = el.getAttribute('data-edits');
+      const container = document.getElementById('editModalBody');
+      const modal = document.getElementById('editModal');
+      
+      container.innerHTML = '';
+      try {
+        const edits = JSON.parse(editsStr);
+        if (edits.length === 0) {
+          container.innerHTML = '<div class="edit-history-content">No previous history available.</div>';
+        } else {
+          // Display in reverse chronological order
+          edits.slice().reverse().forEach(edit => {
+            const date = new Date(edit.timestamp);
+            const formatted = date.toLocaleString();
+            container.innerHTML += `
+              <div class="edit-history-item">
+                <div class="edit-history-time">${formatted}</div>
+                <div class="edit-history-content">${edit.content}</div>
+              </div>
+            `;
+          });
+        }
+      } catch (e) {
+        container.innerHTML = '<div class="edit-history-content">Error parsing history.</div>';
+      }
+      
+      modal.classList.add('active');
+    }
+    
+    function closeEditModal() {
+      document.getElementById('editModal').classList.remove('active');
+    }
+    
+    // Close modal on outside click
+    document.getElementById('editModal').addEventListener('click', function(e) {
+      if (e.target === this) {
+        closeEditModal();
+      }
+    });
   </script>
 </body>
 </html>
