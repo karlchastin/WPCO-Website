@@ -9,37 +9,34 @@
   
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css" />
+  <link rel="stylesheet" href="../dashboard.css" />
   
   <style>
-    :root {
-      --bg: #030712;
-      --surface: rgba(15, 23, 42, 0.4);
-      --surface-hover: rgba(30, 41, 59, 0.6);
-      --primary: #3b82f6;
-      --primary-glow: rgba(59, 130, 246, 0.5);
-      --border: rgba(255, 255, 255, 0.08);
-      --text: #f8fafc;
-      --text-muted: #94a3b8;
-    }
-    
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    
+    /* Force scrolling overrides */
     html, body {
-      background-color: var(--bg);
-      background-image: 
-        radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.12), transparent 25%),
-        radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.12), transparent 25%);
-      background-attachment: fixed;
-      color: var(--text);
-      font-family: 'Inter', sans-serif;
-      min-height: 100vh;
       overflow-y: auto !important;
       overflow-x: hidden;
-      line-height: 1.5;
+      height: auto !important;
+      min-height: 100vh;
     }
-
-    main { height: auto !important; min-height: 100vh; padding: 4rem 2rem; display: block !important; }
-    .dashboard-container { max-width: 1300px; margin: 0 auto; overflow: visible !important; height: auto !important; }
+    
+    main {
+      height: auto !important;
+      min-height: 100vh;
+      padding: 4rem 2rem;
+      display: block !important;
+      background: transparent !important;
+    }
+    
+    .dashboard-container-scroll {
+      max-width: 1300px;
+      margin: 0 auto;
+      overflow: visible !important;
+      height: auto !important;
+      background: transparent;
+      border: none;
+      box-shadow: none;
+    }
 
     /* Header */
     .header {
@@ -52,9 +49,8 @@
       font-size: 3.5rem;
       font-weight: 700;
       letter-spacing: -0.02em;
-      background: linear-gradient(to right, #fff, #94a3b8);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: #fff;
+      text-shadow: 0 4px 15px rgba(255,255,255,0.2);
       margin-bottom: 1rem;
     }
     .header p { color: var(--text-muted); font-size: 1.125rem; max-width: 600px; margin: 0 auto; }
@@ -70,45 +66,6 @@
     @media(min-width: 768px) {
       .controls { flex-direction: row; justify-content: space-between; align-items: center; }
     }
-    
-    .search-bar { position: relative; flex: 1; max-width: 400px; }
-    .search-bar input {
-      width: 100%;
-      background: rgba(15, 23, 42, 0.6);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1rem 1.25rem 1rem 3rem;
-      color: white;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.95rem;
-      transition: all 0.3s ease;
-      backdrop-filter: blur(10px);
-    }
-    .search-bar input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2); }
-    .search-icon {
-      position: absolute;
-      left: 1rem;
-      top: 50%;
-      transform: translateY(-50%);
-      color: var(--text-muted);
-    }
-
-    .filters { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-    .filter-btn {
-      background: rgba(15, 23, 42, 0.6);
-      border: 1px solid var(--border);
-      color: var(--text-muted);
-      padding: 0.5rem 1.25rem;
-      border-radius: 20px;
-      font-size: 0.875rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      backdrop-filter: blur(10px);
-    }
-    .filter-btn:hover { background: var(--surface-hover); color: white; }
-    .filter-btn.active { background: var(--text); color: var(--bg); border-color: var(--text); }
-
     /* Grid */
     .ticket-grid {
       display: grid;
@@ -118,29 +75,30 @@
 
     /* Card */
     .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
+      background: var(--surface-1);
+      border: 1px solid var(--glass-border-light);
       border-radius: 16px;
       padding: 1.5rem;
       text-decoration: none;
       color: inherit;
       position: relative;
       overflow: hidden;
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
       display: flex;
       flex-direction: column;
       height: 100%;
       opacity: 0;
       animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     }
     
     .card:hover {
       transform: translateY(-4px);
-      border-color: rgba(255,255,255,0.2);
-      background: var(--surface-hover);
-      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+      border-color: rgba(255,255,255,0.3);
+      background: var(--surface-2);
+      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.6), 0 0 20px var(--accent-glow);
     }
 
     /* Mouse Glow Effect */
@@ -175,7 +133,7 @@
 
     .field { margin-bottom: 1rem; }
     .field-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 0.3rem; font-weight: 600; }
-    .field-value { font-size: 0.95rem; color: #e2e8f0; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .field-value { font-size: 0.95rem; color: #e2e8f0; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; min-height: 2.85rem; }
 
     .card-footer {
       margin-top: auto;
@@ -188,7 +146,7 @@
       color: var(--text-muted);
     }
     .user-info { display: flex; align-items: center; gap: 0.5rem; }
-    .user-avatar { width: 24px; height: 24px; border-radius: 50%; background: #1e293b; display: flex; align-items: center; justify-content: center; font-size: 0.6rem; }
+    .user-avatar { width: 24px; height: 24px; border-radius: 50%; object-fit: cover; background: #1e293b; display: flex; align-items: center; justify-content: center; font-size: 0.6rem; }
 
     /* Animations */
     @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
@@ -200,26 +158,26 @@
   <canvas id="topo-bg" style="position: fixed; top: 0; left: 0; z-index: -1;"></canvas>
 
   <main>
-    <div class="dashboard-container">
-      <header class="header">
-        <h1>Transcripts Dashboard</h1>
-        <p>Secure archive of all closed World Peace Control Operations tickets.</p>
-      </header>
+    <div class="dashboard-container-scroll">
+      <div class="header">
+        <h1>Closed Tickets</h1>
+        <p>Review resolved tickets, reports, and appeals from the WPCO database.</p>
+      </div>
       
       <div class="controls">
-        <div class="search-bar">
-          <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-          <input type="text" id="searchInput" placeholder="Search by Ticket ID, Reason, or User ID..." autocomplete="off">
+        <div style="position: relative; flex: 1; max-width: 400px;">
+          <svg class="search-icon" style="position: absolute; left: 1rem; top: 50%; transform: translateY(-50%); color: var(--text-muted);" width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+          <input type="text" id="searchInput" class="search-input" style="width: 100%; padding-left: 3rem;" placeholder="Search tickets, reasons, IDs..." />
         </div>
         
-        <div class="filters" id="filters">
-          <button class="filter-btn active" data-filter="all">All</button>
-          <button class="filter-btn" data-filter="Appeal">Appeals</button>
-          <button class="filter-btn" data-filter="Report">Reports</button>
-          <button class="filter-btn" data-filter="Affiliation">Affiliations</button>
+        <div class="filters">
+          <button class="filter-btn active" style="padding: 0.5rem 1.25rem; border-radius: 20px; font-weight: 500; font-size: 0.875rem;" data-filter="all">All</button>
+          <button class="filter-btn" style="padding: 0.5rem 1.25rem; border-radius: 20px; font-weight: 500; font-size: 0.875rem;" data-filter="Appeal">Appeals</button>
+          <button class="filter-btn" style="padding: 0.5rem 1.25rem; border-radius: 20px; font-weight: 500; font-size: 0.875rem;" data-filter="Report">Reports</button>
+          <button class="filter-btn" style="padding: 0.5rem 1.25rem; border-radius: 20px; font-weight: 500; font-size: 0.875rem;" data-filter="Affiliation">Affiliations</button>
         </div>
       </div>
-
+      
       <div class="ticket-grid" id="ticketGrid">
 
         <a href="1e88f5144cb91f3c.html" class="card" data-type="Appeal" data-search="ticket #6 appeal testing outcome: granted 751049879630905345" style="animation-delay: 0.0s;">
@@ -231,18 +189,18 @@
             
             <div class="field">
               <div class="field-label">Initial Reason</div>
-              <div class="field-value">testing</div>
+              <div class="field-value" title="testing">testing</div>
             </div>
             
             <div class="field">
               <div class="field-label">Closure Outcome</div>
-              <div class="field-value">Outcome: Granted</div>
+              <div class="field-value" title="Outcome: Granted">Outcome: Granted</div>
             </div>
             
             <div class="card-footer">
               <div class="user-info">
-                <div class="user-avatar">💬</div>
-                <span>User ID: 751049879630905345</span>
+                <img class="user-avatar" src="../assets/logo.webp" alt="Avatar">
+                <span title="ID: 751049879630905345">catamapp</span>
               </div>
               <span>2026-09-09</span>
             </div>
@@ -258,18 +216,18 @@
             
             <div class="field">
               <div class="field-label">Initial Reason</div>
-              <div class="field-value">Because</div>
+              <div class="field-value" title="Because">Because</div>
             </div>
             
             <div class="field">
               <div class="field-label">Closure Outcome</div>
-              <div class="field-value">User Closed: Because</div>
+              <div class="field-value" title="User Closed: Because">User Closed: Because</div>
             </div>
             
             <div class="card-footer">
               <div class="user-info">
-                <div class="user-avatar">💬</div>
-                <span>User ID: 993831932917981276</span>
+                <img class="user-avatar" src="../assets/logo.webp" alt="Avatar">
+                <span title="ID: 993831932917981276">Auwowa</span>
               </div>
               <span>2026-09-08</span>
             </div>
@@ -285,18 +243,18 @@
             
             <div class="field">
               <div class="field-label">Initial Reason</div>
-              <div class="field-value">It was a test.</div>
+              <div class="field-value" title="It was a test.">It was a test.</div>
             </div>
             
             <div class="field">
               <div class="field-label">Closure Outcome</div>
-              <div class="field-value">User Closed: Forgiven</div>
+              <div class="field-value" title="User Closed: Forgiven">User Closed: Forgiven</div>
             </div>
             
             <div class="card-footer">
               <div class="user-info">
-                <div class="user-avatar">💬</div>
-                <span>User ID: 330950042863271936</span>
+                <img class="user-avatar" src="../assets/logo.webp" alt="Avatar">
+                <span title="ID: 330950042863271936">User 330950042863271936</span>
               </div>
               <span>2026-09-08</span>
             </div>
@@ -312,18 +270,18 @@
             
             <div class="field">
               <div class="field-label">Initial Reason</div>
-              <div class="field-value">Vanished used a very very very very rude and disrespectful word so I accident...</div>
+              <div class="field-value" title="Vanished used a very very very very rude and disrespectful word so I accidentally used the word retard to describe him. It was my fault for calling him a retard and I'll explain the rest in the ticket.">Vanished used a very very very very rude and disrespectful word so I accident...</div>
             </div>
             
             <div class="field">
               <div class="field-label">Closure Outcome</div>
-              <div class="field-value">Outcome: Denied</div>
+              <div class="field-value" title="Outcome: Denied">Outcome: Denied</div>
             </div>
             
             <div class="card-footer">
               <div class="user-info">
-                <div class="user-avatar">💬</div>
-                <span>User ID: 1304067793318182955</span>
+                <img class="user-avatar" src="../assets/logo.webp" alt="Avatar">
+                <span title="ID: 1304067793318182955">Super sigma</span>
               </div>
               <span>2026-09-11</span>
             </div>
@@ -339,18 +297,18 @@
             
             <div class="field">
               <div class="field-label">Initial Reason</div>
-              <div class="field-value">Testing only!</div>
+              <div class="field-value" title="Testing only!">Testing only!</div>
             </div>
             
             <div class="field">
               <div class="field-label">Closure Outcome</div>
-              <div class="field-value">System Mass Close</div>
+              <div class="field-value" title="System Mass Close">System Mass Close</div>
             </div>
             
             <div class="card-footer">
               <div class="user-info">
-                <div class="user-avatar">💬</div>
-                <span>User ID: 330950042863271936</span>
+                <img class="user-avatar" src="../assets/logo.webp" alt="Avatar">
+                <span title="ID: 330950042863271936">User 330950042863271936</span>
               </div>
               <span>2026-09-07</span>
             </div>
@@ -366,18 +324,18 @@
             
             <div class="field">
               <div class="field-label">Initial Reason</div>
-              <div class="field-value">Testing only!</div>
+              <div class="field-value" title="Testing only!">Testing only!</div>
             </div>
             
             <div class="field">
               <div class="field-label">Closure Outcome</div>
-              <div class="field-value">System Mass Close</div>
+              <div class="field-value" title="System Mass Close">System Mass Close</div>
             </div>
             
             <div class="card-footer">
               <div class="user-info">
-                <div class="user-avatar">💬</div>
-                <span>User ID: 330950042863271936</span>
+                <img class="user-avatar" src="../assets/logo.webp" alt="Avatar">
+                <span title="ID: 330950042863271936">User 330950042863271936</span>
               </div>
               <span>2026-09-07</span>
             </div>
@@ -388,21 +346,8 @@
     </div>
   </main>
   
+  <script src="../main.js"></script>
   <script>
-    document.body.style.background = "#020617";
-    
-    // Mouse tracking for glowing cards
-    document.getElementById("ticketGrid").onmousemove = e => {
-      for(const card of document.getElementsByClassName("card")) {
-        const rect = card.getBoundingClientRect(),
-              x = e.clientX - rect.left,
-              y = e.clientY - rect.top;
-
-        card.style.setProperty("--mouse-x", `${x}px`);
-        card.style.setProperty("--mouse-y", `${y}px`);
-      }
-    }
-
     // Search and Filtering
     const searchInput = document.getElementById('searchInput');
     const filterBtns = document.querySelectorAll('.filter-btn');
