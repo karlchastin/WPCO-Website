@@ -4,110 +4,196 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>WPCO Transcripts Dashboard</title>
-  <meta name="theme-color" content="#050d17" />
+  <meta name="theme-color" content="#030712" />
   <link rel="icon" type="image/webp" href="../assets/logo.webp" />
   
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../style.css" />
-  <link rel="stylesheet" href="../dashboard.css" />
+  
   <style>
-    html, body { overflow-y: auto !important; height: auto !important; min-height: 100vh; background: #020617; }
-    main { height: auto !important; min-height: 100vh; padding: 4rem 2rem; display: block !important; }
-    
-    .dashboard-container { height: auto !important; overflow: visible !important; max-width: 1200px; margin: 0 auto; }
-    
-    .header-section {
-      text-align: center;
-      margin-bottom: 3rem;
+    :root {
+      --bg: #030712;
+      --surface: rgba(15, 23, 42, 0.4);
+      --surface-hover: rgba(30, 41, 59, 0.6);
+      --primary: #3b82f6;
+      --primary-glow: rgba(59, 130, 246, 0.5);
+      --border: rgba(255, 255, 255, 0.08);
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
     }
-    .header-section h1 {
-      font-size: 2.5rem;
-      background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%);
+    
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    
+    html, body {
+      background-color: var(--bg);
+      background-image: 
+        radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.12), transparent 25%),
+        radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.12), transparent 25%);
+      background-attachment: fixed;
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      overflow-y: auto !important;
+      overflow-x: hidden;
+      line-height: 1.5;
+    }
+
+    main { height: auto !important; min-height: 100vh; padding: 4rem 2rem; display: block !important; }
+    .dashboard-container { max-width: 1300px; margin: 0 auto; overflow: visible !important; height: auto !important; }
+
+    /* Header */
+    .header {
+      text-align: center;
+      margin-bottom: 4rem;
+      animation: fadeInDown 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .header h1 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(to right, #fff, #94a3b8);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      margin-bottom: 0.5rem;
+      margin-bottom: 1rem;
     }
-    .header-section p { color: var(--text-muted, #94a3b8); font-size: 1.1rem; }
-    
-    .ticket-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 1.5rem;
-    }
-    
-    .ticket-card {
-      background: var(--surface-1, rgba(15, 23, 42, 0.65));
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid var(--glass-border-light, rgba(255, 255, 255, 0.15));
-      border-radius: 16px;
-      padding: 1.5rem;
-      transition: all 0.3s ease;
-      cursor: pointer;
-      text-decoration: none;
+    .header p { color: var(--text-muted); font-size: 1.125rem; max-width: 600px; margin: 0 auto; }
+
+    /* Controls (Search & Filters) */
+    .controls {
       display: flex;
       flex-direction: column;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+      animation: fadeIn 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s backwards;
+    }
+    @media(min-width: 768px) {
+      .controls { flex-direction: row; justify-content: space-between; align-items: center; }
+    }
+    
+    .search-bar { position: relative; flex: 1; max-width: 400px; }
+    .search-bar input {
+      width: 100%;
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem 1.25rem 1rem 3rem;
+      color: white;
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+    .search-bar input:focus { outline: none; border-color: var(--primary); box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2); }
+    .search-icon {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-muted);
+    }
+
+    .filters { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .filter-btn {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 0.5rem 1.25rem;
+      border-radius: 20px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      backdrop-filter: blur(10px);
+    }
+    .filter-btn:hover { background: var(--surface-hover); color: white; }
+    .filter-btn.active { background: var(--text); color: var(--bg); border-color: var(--text); }
+
+    /* Grid */
+    .ticket-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 1.5rem;
+    }
+
+    /* Card */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.5rem;
+      text-decoration: none;
+      color: inherit;
       position: relative;
       overflow: hidden;
-    }
-    .ticket-card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(58, 134, 255, 0.4);
-      box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5), 0 0 20px rgba(58, 134, 255, 0.15);
-    }
-    .ticket-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0; height: 4px;
-      background: linear-gradient(90deg, #3a86ff, #60a5fa);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
       opacity: 0;
-      transition: opacity 0.3s ease;
+      animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
-    .ticket-card:hover::before { opacity: 1; }
     
-    .tc-header {
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255,255,255,0.2);
+      background: var(--surface-hover);
+      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Mouse Glow Effect */
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(800px circle at var(--mouse-x, 0) var(--mouse-y, 0), rgba(255,255,255,0.06), transparent 40%);
+      opacity: 0;
+      transition: opacity 0.5s;
+      z-index: 1;
+      pointer-events: none;
+    }
+    .card:hover::before { opacity: 1; }
+
+    .card-content { position: relative; z-index: 2; display: flex; flex-direction: column; flex: 1; }
+
+    .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.25rem; }
+    .ticket-id { font-family: 'Outfit', sans-serif; font-size: 1.25rem; font-weight: 600; color: white; }
+    
+    .badge {
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .badge-Appeal { background: rgba(139, 92, 246, 0.15); color: #c4b5fd; border: 1px solid rgba(139, 92, 246, 0.3); }
+    .badge-Report { background: rgba(239, 68, 68, 0.15); color: #fca5a5; border: 1px solid rgba(239, 68, 68, 0.3); }
+    .badge-Affiliation { background: rgba(16, 185, 129, 0.15); color: #6ee7b7; border: 1px solid rgba(16, 185, 129, 0.3); }
+
+    .field { margin-bottom: 1rem; }
+    .field-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 0.3rem; font-weight: 600; }
+    .field-value { font-size: 0.95rem; color: #e2e8f0; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+
+    .card-footer {
+      margin-top: auto;
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 1rem;
-    }
-    .tc-id {
-      font-weight: 700;
-      font-size: 1.2rem;
-      color: #fff;
-    }
-    .tc-type {
-      background: rgba(58, 134, 255, 0.2);
-      color: #93c5fd;
-      padding: 0.25rem 0.75rem;
-      border-radius: 20px;
       font-size: 0.8rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
+      color: var(--text-muted);
     }
-    .tc-body { flex: 1; }
-    .tc-label {
-      color: var(--text-muted, #94a3b8);
-      font-size: 0.85rem;
-      margin-bottom: 0.25rem;
-    }
-    .tc-value {
-      color: #e2e8f0;
-      font-size: 0.95rem;
-      margin-bottom: 1rem;
-      line-height: 1.4;
-    }
-    .tc-footer {
-      margin-top: 0.5rem;
-      padding-top: 1rem;
-      border-top: 1px solid rgba(255,255,255,0.05);
-      display: flex;
-      justify-content: space-between;
-      color: var(--text-muted, #94a3b8);
-      font-size: 0.8rem;
-    }
+    .user-info { display: flex; align-items: center; gap: 0.5rem; }
+    .user-avatar { width: 24px; height: 24px; border-radius: 50%; background: #1e293b; display: flex; align-items: center; justify-content: center; font-size: 0.6rem; }
+
+    /* Animations */
+    @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
   </style>
 </head>
 <body>
@@ -115,118 +201,186 @@
 
   <main>
     <div class="dashboard-container">
-      <div class="header-section">
+      <header class="header">
         <h1>Transcripts Dashboard</h1>
         <p>Secure archive of all closed World Peace Control Operations tickets.</p>
-      </div>
+      </header>
       
-      <div class="ticket-grid">
+      <div class="controls">
+        <div class="search-bar">
+          <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <input type="text" id="searchInput" placeholder="Search by Ticket ID, Reason, or User ID..." autocomplete="off">
+        </div>
+        
+        <div class="filters" id="filters">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="Appeal">Appeals</button>
+          <button class="filter-btn" data-filter="Report">Reports</button>
+          <button class="filter-btn" data-filter="Affiliation">Affiliations</button>
+        </div>
+      </div>
 
-        <a href="1e88f5144cb91f3c.html" class="ticket-card">
-          <div class="tc-header">
-            <span class="tc-id">Ticket #6</span>
-            <span class="tc-type">Appeal</span>
-          </div>
-          <div class="tc-body">
-            <div class="tc-label">Initial Reason:</div>
-            <div class="tc-value">testing</div>
+      <div class="ticket-grid" id="ticketGrid">
+
+        <a href="1e88f5144cb91f3c.html" class="card" data-type="Appeal" data-search="ticket #6 appeal testing outcome: granted 751049879630905345" style="animation-delay: 0.0s;">
+          <div class="card-content">
+            <div class="card-header">
+              <span class="ticket-id">Ticket #6</span>
+              <span class="badge badge-Appeal">Appeal</span>
+            </div>
             
-            <div class="tc-label">Closure Outcome:</div>
-            <div class="tc-value">Outcome: Granted</div>
-          </div>
-          <div class="tc-footer">
-            <span>User ID: 751049879630905345</span>
-            <span>2026-09-09</span>
+            <div class="field">
+              <div class="field-label">Initial Reason</div>
+              <div class="field-value">testing</div>
+            </div>
+            
+            <div class="field">
+              <div class="field-label">Closure Outcome</div>
+              <div class="field-value">Outcome: Granted</div>
+            </div>
+            
+            <div class="card-footer">
+              <div class="user-info">
+                <div class="user-avatar">💬</div>
+                <span>User ID: 751049879630905345</span>
+              </div>
+              <span>2026-09-09</span>
+            </div>
           </div>
         </a>
 
-        <a href="be82a18d6e7ba66c.html" class="ticket-card">
-          <div class="tc-header">
-            <span class="tc-id">Ticket #5</span>
-            <span class="tc-type">Appeal</span>
-          </div>
-          <div class="tc-body">
-            <div class="tc-label">Initial Reason:</div>
-            <div class="tc-value">Because</div>
+        <a href="be82a18d6e7ba66c.html" class="card" data-type="Appeal" data-search="ticket #5 appeal because user closed: because 993831932917981276" style="animation-delay: 0.05s;">
+          <div class="card-content">
+            <div class="card-header">
+              <span class="ticket-id">Ticket #5</span>
+              <span class="badge badge-Appeal">Appeal</span>
+            </div>
             
-            <div class="tc-label">Closure Outcome:</div>
-            <div class="tc-value">User Closed: Because</div>
-          </div>
-          <div class="tc-footer">
-            <span>User ID: 993831932917981276</span>
-            <span>2026-09-08</span>
+            <div class="field">
+              <div class="field-label">Initial Reason</div>
+              <div class="field-value">Because</div>
+            </div>
+            
+            <div class="field">
+              <div class="field-label">Closure Outcome</div>
+              <div class="field-value">User Closed: Because</div>
+            </div>
+            
+            <div class="card-footer">
+              <div class="user-info">
+                <div class="user-avatar">💬</div>
+                <span>User ID: 993831932917981276</span>
+              </div>
+              <span>2026-09-08</span>
+            </div>
           </div>
         </a>
 
-        <a href="1b226f555e385616.html" class="ticket-card">
-          <div class="tc-header">
-            <span class="tc-id">Ticket #4</span>
-            <span class="tc-type">Appeal</span>
-          </div>
-          <div class="tc-body">
-            <div class="tc-label">Initial Reason:</div>
-            <div class="tc-value">It was a test.</div>
+        <a href="1b226f555e385616.html" class="card" data-type="Appeal" data-search="ticket #4 appeal it was a test. user closed: forgiven 330950042863271936" style="animation-delay: 0.1s;">
+          <div class="card-content">
+            <div class="card-header">
+              <span class="ticket-id">Ticket #4</span>
+              <span class="badge badge-Appeal">Appeal</span>
+            </div>
             
-            <div class="tc-label">Closure Outcome:</div>
-            <div class="tc-value">User Closed: Forgiven</div>
-          </div>
-          <div class="tc-footer">
-            <span>User ID: 330950042863271936</span>
-            <span>2026-09-08</span>
+            <div class="field">
+              <div class="field-label">Initial Reason</div>
+              <div class="field-value">It was a test.</div>
+            </div>
+            
+            <div class="field">
+              <div class="field-label">Closure Outcome</div>
+              <div class="field-value">User Closed: Forgiven</div>
+            </div>
+            
+            <div class="card-footer">
+              <div class="user-info">
+                <div class="user-avatar">💬</div>
+                <span>User ID: 330950042863271936</span>
+              </div>
+              <span>2026-09-08</span>
+            </div>
           </div>
         </a>
 
-        <a href="510bf20f29afba62.html" class="ticket-card">
-          <div class="tc-header">
-            <span class="tc-id">Ticket #3</span>
-            <span class="tc-type">Appeal</span>
-          </div>
-          <div class="tc-body">
-            <div class="tc-label">Initial Reason:</div>
-            <div class="tc-value">Vanished used a very very very very rude and disrespectful word so I accident...</div>
+        <a href="510bf20f29afba62.html" class="card" data-type="Appeal" data-search="ticket #3 appeal vanished used a very very very very rude and disrespectful word so i accident... outcome: denied 1304067793318182955" style="animation-delay: 0.15000000000000002s;">
+          <div class="card-content">
+            <div class="card-header">
+              <span class="ticket-id">Ticket #3</span>
+              <span class="badge badge-Appeal">Appeal</span>
+            </div>
             
-            <div class="tc-label">Closure Outcome:</div>
-            <div class="tc-value">Outcome: Denied</div>
-          </div>
-          <div class="tc-footer">
-            <span>User ID: 1304067793318182955</span>
-            <span>2026-09-11</span>
+            <div class="field">
+              <div class="field-label">Initial Reason</div>
+              <div class="field-value">Vanished used a very very very very rude and disrespectful word so I accident...</div>
+            </div>
+            
+            <div class="field">
+              <div class="field-label">Closure Outcome</div>
+              <div class="field-value">Outcome: Denied</div>
+            </div>
+            
+            <div class="card-footer">
+              <div class="user-info">
+                <div class="user-avatar">💬</div>
+                <span>User ID: 1304067793318182955</span>
+              </div>
+              <span>2026-09-11</span>
+            </div>
           </div>
         </a>
 
-        <a href="e33f180fcc406951.html" class="ticket-card">
-          <div class="tc-header">
-            <span class="tc-id">Ticket #2</span>
-            <span class="tc-type">Appeal</span>
-          </div>
-          <div class="tc-body">
-            <div class="tc-label">Initial Reason:</div>
-            <div class="tc-value">Testing only!</div>
+        <a href="e33f180fcc406951.html" class="card" data-type="Appeal" data-search="ticket #2 appeal testing only! system mass close 330950042863271936" style="animation-delay: 0.2s;">
+          <div class="card-content">
+            <div class="card-header">
+              <span class="ticket-id">Ticket #2</span>
+              <span class="badge badge-Appeal">Appeal</span>
+            </div>
             
-            <div class="tc-label">Closure Outcome:</div>
-            <div class="tc-value">System Mass Close</div>
-          </div>
-          <div class="tc-footer">
-            <span>User ID: 330950042863271936</span>
-            <span>2026-09-07</span>
+            <div class="field">
+              <div class="field-label">Initial Reason</div>
+              <div class="field-value">Testing only!</div>
+            </div>
+            
+            <div class="field">
+              <div class="field-label">Closure Outcome</div>
+              <div class="field-value">System Mass Close</div>
+            </div>
+            
+            <div class="card-footer">
+              <div class="user-info">
+                <div class="user-avatar">💬</div>
+                <span>User ID: 330950042863271936</span>
+              </div>
+              <span>2026-09-07</span>
+            </div>
           </div>
         </a>
 
-        <a href="8edeccad251aba3b.html" class="ticket-card">
-          <div class="tc-header">
-            <span class="tc-id">Ticket #1</span>
-            <span class="tc-type">Appeal</span>
-          </div>
-          <div class="tc-body">
-            <div class="tc-label">Initial Reason:</div>
-            <div class="tc-value">Testing only!</div>
+        <a href="8edeccad251aba3b.html" class="card" data-type="Appeal" data-search="ticket #1 appeal testing only! system mass close 330950042863271936" style="animation-delay: 0.25s;">
+          <div class="card-content">
+            <div class="card-header">
+              <span class="ticket-id">Ticket #1</span>
+              <span class="badge badge-Appeal">Appeal</span>
+            </div>
             
-            <div class="tc-label">Closure Outcome:</div>
-            <div class="tc-value">System Mass Close</div>
-          </div>
-          <div class="tc-footer">
-            <span>User ID: 330950042863271936</span>
-            <span>2026-09-07</span>
+            <div class="field">
+              <div class="field-label">Initial Reason</div>
+              <div class="field-value">Testing only!</div>
+            </div>
+            
+            <div class="field">
+              <div class="field-label">Closure Outcome</div>
+              <div class="field-value">System Mass Close</div>
+            </div>
+            
+            <div class="card-footer">
+              <div class="user-info">
+                <div class="user-avatar">💬</div>
+                <span>User ID: 330950042863271936</span>
+              </div>
+              <span>2026-09-07</span>
+            </div>
           </div>
         </a>
 
@@ -236,6 +390,56 @@
   
   <script>
     document.body.style.background = "#020617";
+    
+    // Mouse tracking for glowing cards
+    document.getElementById("ticketGrid").onmousemove = e => {
+      for(const card of document.getElementsByClassName("card")) {
+        const rect = card.getBoundingClientRect(),
+              x = e.clientX - rect.left,
+              y = e.clientY - rect.top;
+
+        card.style.setProperty("--mouse-x", `${x}px`);
+        card.style.setProperty("--mouse-y", `${y}px`);
+      }
+    }
+
+    // Search and Filtering
+    const searchInput = document.getElementById('searchInput');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.card');
+    
+    let activeFilter = 'all';
+    let searchQuery = '';
+
+    function filterCards() {
+      cards.forEach(card => {
+        const type = card.getAttribute('data-type');
+        const searchData = card.getAttribute('data-search').toLowerCase();
+        
+        const matchesFilter = activeFilter === 'all' || type === activeFilter;
+        const matchesSearch = searchData.includes(searchQuery);
+        
+        if(matchesFilter && matchesSearch) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    searchInput.addEventListener('input', (e) => {
+      searchQuery = e.target.value.toLowerCase();
+      filterCards();
+    });
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeFilter = btn.getAttribute('data-filter');
+        filterCards();
+      });
+    });
   </script>
 </body>
 </html>
