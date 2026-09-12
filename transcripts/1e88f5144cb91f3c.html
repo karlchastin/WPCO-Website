@@ -42,7 +42,18 @@
       max-width: 900px;
       margin: 0 auto;
       padding: 2rem;
+      animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1);
       color: #fff;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    @keyframes slideUpFade {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     
     /* Premium Aesthetic */
@@ -88,6 +99,7 @@
       transition: all 0.2s ease;
       background: transparent;
       border: 1px solid transparent;
+      animation: slideUpFade 0.5s cubic-bezier(0.16, 1, 0.3, 1) backwards;
     }
     .chat-message:hover {
       background: rgba(255, 255, 255, 0.03);
@@ -191,86 +203,14 @@
         
         <div class="chat-log">
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
-            <div class="chat-content">
-              <div class="chat-header">
-                <span class="chat-username">WPCO Virtual Assistant</span>
-                <span class="chat-timestamp">2026-09-09 14:55:42</span>
-              </div>
-              <div class="chat-text"></div>
-
-            </div>
-          </div>
-
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 0.04s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/751049879630905345/80e0b720a11c05a493d956a5f4d3bd6c.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">catamapp</span>
                 <span class="chat-timestamp">2026-09-09 14:55:52</span>
               </div>
-              <div class="chat-text"><span class="discord-mention">@User 330950042863271936</span></div>
-
-            </div>
-          </div>
-
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
-            <div class="chat-content">
-              <div class="chat-header">
-                <span class="chat-username">WPCO Virtual Assistant</span>
-                <span class="chat-timestamp">2026-09-09 14:56:56</span>
-              </div>
-              <div class="chat-text"></div>
-
-            </div>
-          </div>
-
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
-            <div class="chat-content">
-              <div class="chat-header">
-                <span class="chat-username">WPCO Virtual Assistant</span>
-                <span class="chat-timestamp">2026-09-09 14:57:09</span>
-              </div>
-              <div class="chat-text"></div>
-
-            </div>
-          </div>
-
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
-            <div class="chat-content">
-              <div class="chat-header">
-                <span class="chat-username">WPCO Virtual Assistant</span>
-                <span class="chat-timestamp">2026-09-09 14:58:32</span>
-              </div>
-              <div class="chat-text"></div>
-
-            </div>
-          </div>
-
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
-            <div class="chat-content">
-              <div class="chat-header">
-                <span class="chat-username">WPCO Virtual Assistant</span>
-                <span class="chat-timestamp">2026-09-09 14:58:45</span>
-              </div>
-              <div class="chat-text"></div>
-
-            </div>
-          </div>
-
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
-            <div class="chat-content">
-              <div class="chat-header">
-                <span class="chat-username">WPCO Virtual Assistant</span>
-                <span class="chat-timestamp">2026-09-09 16:33:46</span>
-              </div>
-              <div class="chat-text"></div>
+              <div class="chat-text"><span class="discord-mention">@karlchastin</span></div>
 
             </div>
           </div>

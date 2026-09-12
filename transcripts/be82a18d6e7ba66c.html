@@ -42,7 +42,18 @@
       max-width: 900px;
       margin: 0 auto;
       padding: 2rem;
+      animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1);
       color: #fff;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    @keyframes slideUpFade {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     
     /* Premium Aesthetic */
@@ -88,6 +99,7 @@
       transition: all 0.2s ease;
       background: transparent;
       border: 1px solid transparent;
+      animation: slideUpFade 0.5s cubic-bezier(0.16, 1, 0.3, 1) backwards;
     }
     .chat-message:hover {
       background: rgba(255, 255, 255, 0.03);
@@ -191,8 +203,8 @@
         
         <div class="chat-log">
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 0.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1102518586792222760/d65b8cf43125bd7d82007c6cea944e9c.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">legacy</span>
@@ -203,8 +215,8 @@
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 0.04s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/993831932917981276/d11c0bd1c832499b5d3493ae036d6d3f.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Auwowa</span>
@@ -215,8 +227,8 @@
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 0.08s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/993831932917981276/d11c0bd1c832499b5d3493ae036d6d3f.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Auwowa</span>
@@ -227,8 +239,8 @@
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 0.12s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/993831932917981276/d11c0bd1c832499b5d3493ae036d6d3f.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Auwowa</span>
@@ -239,8 +251,8 @@
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 0.16s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/993831932917981276/d11c0bd1c832499b5d3493ae036d6d3f.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Auwowa</span>
@@ -251,8 +263,8 @@
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 0.2s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/993831932917981276/d11c0bd1c832499b5d3493ae036d6d3f.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Auwowa</span>
@@ -263,8 +275,8 @@
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 0.24s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/embed/avatars/1.png" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">chas</span>
@@ -275,8 +287,8 @@
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 0.28s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/embed/avatars/1.png" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">chas</span>
@@ -287,8 +299,8 @@
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 0.32s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/embed/avatars/1.png" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">chas</span>
@@ -299,8 +311,8 @@
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 0.36s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/embed/avatars/1.png" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">chas</span>
@@ -311,8 +323,8 @@
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 0.4s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/embed/avatars/1.png" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">chas</span>
@@ -323,8 +335,8 @@
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 0.44s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/embed/avatars/1.png" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">chas</span>
@@ -335,8 +347,8 @@
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 0.48s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/993831932917981276/d11c0bd1c832499b5d3493ae036d6d3f.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Auwowa</span>
@@ -347,8 +359,8 @@
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 0.52s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/993831932917981276/d11c0bd1c832499b5d3493ae036d6d3f.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Auwowa</span>
@@ -359,8 +371,8 @@
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 0.56s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/embed/avatars/1.png" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">chas</span>
@@ -371,8 +383,8 @@
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 0.6s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/embed/avatars/1.png" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">chas</span>
@@ -383,8 +395,8 @@
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 0.64s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/embed/avatars/1.png" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">chas</span>
@@ -395,8 +407,8 @@
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 0.68s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/embed/avatars/1.png" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">chas</span>
@@ -407,8 +419,8 @@
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 0.72s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/embed/avatars/1.png" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">chas</span>
@@ -419,8 +431,8 @@
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 0.76s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/embed/avatars/1.png" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">chas</span>
@@ -431,8 +443,8 @@
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 0.8s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/993831932917981276/d11c0bd1c832499b5d3493ae036d6d3f.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Auwowa</span>
@@ -443,20 +455,20 @@
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 0.84s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/embed/avatars/1.png" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">chas</span>
                 <span class="chat-timestamp">2026-09-08 11:05:24</span>
               </div>
-              <div class="chat-text"><span class="discord-mention">@User 1102518586792222760</span> I think you can close this and grant appeal</div>
+              <div class="chat-text"><span class="discord-mention">@infamy4life</span> I think you can close this and grant appeal</div>
 
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 0.88s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/993831932917981276/d11c0bd1c832499b5d3493ae036d6d3f.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Auwowa</span>
@@ -467,8 +479,8 @@
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 0.92s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/embed/avatars/1.png" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">chas</span>
@@ -479,8 +491,8 @@
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 0.96s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/embed/avatars/1.png" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">chas</span>
@@ -491,8 +503,8 @@
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 1.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/embed/avatars/1.png" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">chas</span>
@@ -503,8 +515,8 @@
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 1.04s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/993831932917981276/d11c0bd1c832499b5d3493ae036d6d3f.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Auwowa</span>
@@ -515,8 +527,8 @@
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 1.08s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/993831932917981276/d11c0bd1c832499b5d3493ae036d6d3f.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Auwowa</span>
@@ -527,8 +539,8 @@
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 1.12s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/embed/avatars/1.png" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">chas</span>
@@ -539,8 +551,8 @@
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 1.16s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/993831932917981276/d11c0bd1c832499b5d3493ae036d6d3f.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Auwowa</span>
@@ -551,8 +563,8 @@
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 1.2s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/embed/avatars/1.png" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">chas</span>
@@ -563,8 +575,8 @@
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 1.24s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/embed/avatars/1.png" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">chas</span>
@@ -575,20 +587,20 @@
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 1.28s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/993831932917981276/d11c0bd1c832499b5d3493ae036d6d3f.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Auwowa</span>
                 <span class="chat-timestamp">2026-09-08 11:06:22</span>
               </div>
-              <div class="chat-text"><span class="discord-mention">@User 1540845780808769626</span> will you marry me</div>
+              <div class="chat-text"><span class="discord-mention">@WPCO Virtual Assistant</span> will you marry me</div>
 
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 1.32s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/embed/avatars/1.png" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">chas</span>
@@ -599,8 +611,8 @@
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 1.36s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/993831932917981276/d11c0bd1c832499b5d3493ae036d6d3f.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Auwowa</span>
@@ -611,8 +623,8 @@
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 1.4000000000000001s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/embed/avatars/1.png" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">chas</span>
@@ -623,8 +635,8 @@
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 1.44s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/993831932917981276/d11c0bd1c832499b5d3493ae036d6d3f.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Auwowa</span>
@@ -635,8 +647,8 @@
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 1.48s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/993831932917981276/d11c0bd1c832499b5d3493ae036d6d3f.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Auwowa</span>
@@ -647,8 +659,8 @@
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 1.52s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/993831932917981276/d11c0bd1c832499b5d3493ae036d6d3f.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Auwowa</span>
@@ -659,8 +671,8 @@
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 1.56s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/993831932917981276/d11c0bd1c832499b5d3493ae036d6d3f.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Auwowa</span>
@@ -671,8 +683,8 @@
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 1.6s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/embed/avatars/1.png" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">chas</span>
@@ -683,8 +695,8 @@
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 1.6400000000000001s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/993831932917981276/d11c0bd1c832499b5d3493ae036d6d3f.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Auwowa</span>
@@ -695,8 +707,8 @@
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 1.68s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/993831932917981276/d11c0bd1c832499b5d3493ae036d6d3f.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Auwowa</span>
@@ -707,8 +719,8 @@
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 1.72s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/993831932917981276/d11c0bd1c832499b5d3493ae036d6d3f.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Auwowa</span>
@@ -719,8 +731,8 @@
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 1.76s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1102518586792222760/d65b8cf43125bd7d82007c6cea944e9c.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">legacy</span>
@@ -731,8 +743,8 @@
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 1.8s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1102518586792222760/d65b8cf43125bd7d82007c6cea944e9c.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">legacy</span>
@@ -743,8 +755,8 @@
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 1.84s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/embed/avatars/1.png" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">chas</span>
@@ -755,8 +767,8 @@
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 1.8800000000000001s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/embed/avatars/1.png" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">chas</span>
@@ -767,8 +779,8 @@
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 1.92s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/993831932917981276/d11c0bd1c832499b5d3493ae036d6d3f.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Auwowa</span>
@@ -779,8 +791,8 @@
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 1.96s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/993831932917981276/d11c0bd1c832499b5d3493ae036d6d3f.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Auwowa</span>
@@ -791,8 +803,8 @@
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/993831932917981276/d11c0bd1c832499b5d3493ae036d6d3f.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Auwowa</span>
@@ -803,14 +815,14 @@
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/993831932917981276/d11c0bd1c832499b5d3493ae036d6d3f.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Auwowa</span>
                 <span class="chat-timestamp">2026-09-08 11:30:35</span>
               </div>
-              <div class="chat-text"><span class="discord-mention">@User 1102518586792222760</span> appeal plz</div>
+              <div class="chat-text"><span class="discord-mention">@infamy4life</span> appeal plz</div>
 
             </div>
           </div>

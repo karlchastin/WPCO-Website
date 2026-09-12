@@ -42,7 +42,18 @@
       max-width: 900px;
       margin: 0 auto;
       padding: 2rem;
+      animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1);
       color: #fff;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    @keyframes slideUpFade {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
     }
     
     /* Premium Aesthetic */
@@ -88,6 +99,7 @@
       transition: all 0.2s ease;
       background: transparent;
       border: 1px solid transparent;
+      animation: slideUpFade 0.5s cubic-bezier(0.16, 1, 0.3, 1) backwards;
     }
     .chat-message:hover {
       background: rgba(255, 255, 255, 0.03);
@@ -191,20 +203,20 @@
         
         <div class="chat-log">
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 0.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
                 <span class="chat-timestamp">2026-09-07 11:11:16</span>
               </div>
-              <div class="chat-text"><span class="discord-mention">@User 898188801954955275</span></div>
+              <div class="chat-text"><span class="discord-mention">@noone_here123</span></div>
 
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 0.04s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1102518586792222760/d65b8cf43125bd7d82007c6cea944e9c.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">legacy</span>
@@ -215,8 +227,8 @@
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 0.08s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1102518586792222760/d65b8cf43125bd7d82007c6cea944e9c.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">legacy</span>
@@ -227,8 +239,8 @@
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 0.12s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -239,20 +251,20 @@
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 0.16s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
                 <span class="chat-timestamp">2026-09-07 11:21:28</span>
               </div>
-              <div class="chat-text"><span class="discord-mention">@User 898188801954955275</span></div>
+              <div class="chat-text"><span class="discord-mention">@noone_here123</span></div>
 
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 0.2s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -263,8 +275,8 @@
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 0.24s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1102518586792222760/d65b8cf43125bd7d82007c6cea944e9c.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">legacy</span>
@@ -275,8 +287,8 @@
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 0.28s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -287,8 +299,8 @@
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 0.32s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/898188801954955275/cf912dc9cada0c319d2406c7e97edd77.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Noone</span>
@@ -301,8 +313,8 @@ This ticket is restricted to only HC+ .. Only they  can appeal and watch this ca
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 0.36s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -313,8 +325,8 @@ This ticket is restricted to only HC+ .. Only they  can appeal and watch this ca
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 0.4s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/840946058254352384/a70c8536c5dd2c67f8a842d769186561.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Plasm</span>
@@ -325,8 +337,8 @@ This ticket is restricted to only HC+ .. Only they  can appeal and watch this ca
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 0.44s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -337,8 +349,8 @@ This ticket is restricted to only HC+ .. Only they  can appeal and watch this ca
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 0.48s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -349,8 +361,8 @@ This ticket is restricted to only HC+ .. Only they  can appeal and watch this ca
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 0.52s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -361,8 +373,8 @@ This ticket is restricted to only HC+ .. Only they  can appeal and watch this ca
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 0.56s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -373,8 +385,8 @@ This ticket is restricted to only HC+ .. Only they  can appeal and watch this ca
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 0.6s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -385,8 +397,8 @@ This ticket is restricted to only HC+ .. Only they  can appeal and watch this ca
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 0.64s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/758779801648889896/96a34ef28bdf41c36e9650d0f7eecb95.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">archnexus()</span>
@@ -397,8 +409,8 @@ This ticket is restricted to only HC+ .. Only they  can appeal and watch this ca
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 0.68s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/758779801648889896/96a34ef28bdf41c36e9650d0f7eecb95.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">archnexus()</span>
@@ -409,20 +421,20 @@ This ticket is restricted to only HC+ .. Only they  can appeal and watch this ca
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 0.72s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/758779801648889896/96a34ef28bdf41c36e9650d0f7eecb95.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">archnexus()</span>
                 <span class="chat-timestamp">2026-09-08 04:02:46</span>
               </div>
-              <div class="chat-text"><span class="discord-mention">@User 330950042863271936</span> no</div>
+              <div class="chat-text"><span class="discord-mention">@karlchastin</span> no</div>
 
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 0.76s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/embed/avatars/1.png" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">chas</span>
@@ -433,8 +445,8 @@ This ticket is restricted to only HC+ .. Only they  can appeal and watch this ca
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 0.8s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -445,8 +457,8 @@ This ticket is restricted to only HC+ .. Only they  can appeal and watch this ca
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 0.84s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -457,8 +469,8 @@ This ticket is restricted to only HC+ .. Only they  can appeal and watch this ca
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 0.88s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -469,20 +481,20 @@ This ticket is restricted to only HC+ .. Only they  can appeal and watch this ca
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 0.92s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
                 <span class="chat-timestamp">2026-09-08 09:31:49</span>
               </div>
-              <div class="chat-text">Why would he just suddenly ragebait me? <span class="discord-mention">@User 840946058254352384</span></div>
+              <div class="chat-text">Why would he just suddenly ragebait me? <span class="discord-mention">@plasmvs</span></div>
 
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 0.96s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -493,8 +505,8 @@ This ticket is restricted to only HC+ .. Only they  can appeal and watch this ca
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 1.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/840946058254352384/a70c8536c5dd2c67f8a842d769186561.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Plasm</span>
@@ -505,8 +517,8 @@ This ticket is restricted to only HC+ .. Only they  can appeal and watch this ca
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 1.04s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/840946058254352384/a70c8536c5dd2c67f8a842d769186561.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Plasm</span>
@@ -517,8 +529,8 @@ This ticket is restricted to only HC+ .. Only they  can appeal and watch this ca
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 1.08s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -529,8 +541,8 @@ This ticket is restricted to only HC+ .. Only they  can appeal and watch this ca
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 1.12s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -541,8 +553,8 @@ This ticket is restricted to only HC+ .. Only they  can appeal and watch this ca
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 1.16s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -553,8 +565,8 @@ This ticket is restricted to only HC+ .. Only they  can appeal and watch this ca
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 1.2s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -565,8 +577,8 @@ This ticket is restricted to only HC+ .. Only they  can appeal and watch this ca
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 1.24s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -577,8 +589,8 @@ This ticket is restricted to only HC+ .. Only they  can appeal and watch this ca
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 1.28s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -589,8 +601,8 @@ This ticket is restricted to only HC+ .. Only they  can appeal and watch this ca
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 1.32s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -601,8 +613,8 @@ This ticket is restricted to only HC+ .. Only they  can appeal and watch this ca
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 1.36s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -613,8 +625,8 @@ This ticket is restricted to only HC+ .. Only they  can appeal and watch this ca
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 1.4000000000000001s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -625,8 +637,8 @@ This ticket is restricted to only HC+ .. Only they  can appeal and watch this ca
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 1.44s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -637,8 +649,8 @@ This ticket is restricted to only HC+ .. Only they  can appeal and watch this ca
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 1.48s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -649,8 +661,8 @@ This ticket is restricted to only HC+ .. Only they  can appeal and watch this ca
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 1.52s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -661,8 +673,8 @@ This ticket is restricted to only HC+ .. Only they  can appeal and watch this ca
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 1.56s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1102518586792222760/d65b8cf43125bd7d82007c6cea944e9c.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">legacy</span>
@@ -673,20 +685,20 @@ This ticket is restricted to only HC+ .. Only they  can appeal and watch this ca
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 1.6s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
                 <span class="chat-timestamp">2026-09-08 12:57:15</span>
               </div>
-              <div class="chat-text"><span class="discord-mention">@User 1102518586792222760</span> read this</div>
+              <div class="chat-text"><span class="discord-mention">@infamy4life</span> read this</div>
 
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 1.6400000000000001s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/embed/avatars/1.png" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">chas</span>
@@ -697,8 +709,8 @@ This ticket is restricted to only HC+ .. Only they  can appeal and watch this ca
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 1.68s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -709,8 +721,8 @@ This ticket is restricted to only HC+ .. Only they  can appeal and watch this ca
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 1.72s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -721,8 +733,8 @@ This ticket is restricted to only HC+ .. Only they  can appeal and watch this ca
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 1.76s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -733,8 +745,8 @@ This ticket is restricted to only HC+ .. Only they  can appeal and watch this ca
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 1.8s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -745,8 +757,8 @@ This ticket is restricted to only HC+ .. Only they  can appeal and watch this ca
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 1.84s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1102518586792222760/d65b8cf43125bd7d82007c6cea944e9c.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">legacy</span>
@@ -757,8 +769,8 @@ This ticket is restricted to only HC+ .. Only they  can appeal and watch this ca
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 1.8800000000000001s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -769,8 +781,8 @@ This ticket is restricted to only HC+ .. Only they  can appeal and watch this ca
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 1.92s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1102518586792222760/d65b8cf43125bd7d82007c6cea944e9c.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">legacy</span>
@@ -781,8 +793,8 @@ This ticket is restricted to only HC+ .. Only they  can appeal and watch this ca
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 1.96s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1102518586792222760/d65b8cf43125bd7d82007c6cea944e9c.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">legacy</span>
@@ -793,8 +805,8 @@ This ticket is restricted to only HC+ .. Only they  can appeal and watch this ca
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1102518586792222760/d65b8cf43125bd7d82007c6cea944e9c.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">legacy</span>
@@ -805,8 +817,8 @@ This ticket is restricted to only HC+ .. Only they  can appeal and watch this ca
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1102518586792222760/d65b8cf43125bd7d82007c6cea944e9c.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">legacy</span>
@@ -817,8 +829,8 @@ This ticket is restricted to only HC+ .. Only they  can appeal and watch this ca
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/758779801648889896/96a34ef28bdf41c36e9650d0f7eecb95.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">archnexus()</span>
@@ -831,8 +843,8 @@ You ain't getting unbanned if you keep doing shit like that</div>
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1102518586792222760/d65b8cf43125bd7d82007c6cea944e9c.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">legacy</span>
@@ -843,8 +855,8 @@ You ain't getting unbanned if you keep doing shit like that</div>
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -855,8 +867,8 @@ You ain't getting unbanned if you keep doing shit like that</div>
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -867,8 +879,8 @@ You ain't getting unbanned if you keep doing shit like that</div>
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/758779801648889896/96a34ef28bdf41c36e9650d0f7eecb95.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">archnexus()</span>
@@ -879,8 +891,8 @@ You ain't getting unbanned if you keep doing shit like that</div>
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/758779801648889896/96a34ef28bdf41c36e9650d0f7eecb95.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">archnexus()</span>
@@ -891,8 +903,8 @@ You ain't getting unbanned if you keep doing shit like that</div>
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -903,8 +915,8 @@ You ain't getting unbanned if you keep doing shit like that</div>
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/758779801648889896/96a34ef28bdf41c36e9650d0f7eecb95.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">archnexus()</span>
@@ -915,8 +927,8 @@ You ain't getting unbanned if you keep doing shit like that</div>
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -927,8 +939,8 @@ You ain't getting unbanned if you keep doing shit like that</div>
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -939,8 +951,8 @@ You ain't getting unbanned if you keep doing shit like that</div>
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/758779801648889896/96a34ef28bdf41c36e9650d0f7eecb95.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">archnexus()</span>
@@ -951,8 +963,8 @@ You ain't getting unbanned if you keep doing shit like that</div>
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/758779801648889896/96a34ef28bdf41c36e9650d0f7eecb95.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">archnexus()</span>
@@ -963,8 +975,8 @@ You ain't getting unbanned if you keep doing shit like that</div>
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -975,8 +987,8 @@ You ain't getting unbanned if you keep doing shit like that</div>
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/758779801648889896/96a34ef28bdf41c36e9650d0f7eecb95.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">archnexus()</span>
@@ -987,8 +999,8 @@ You ain't getting unbanned if you keep doing shit like that</div>
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -999,8 +1011,8 @@ You ain't getting unbanned if you keep doing shit like that</div>
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -1011,8 +1023,8 @@ You ain't getting unbanned if you keep doing shit like that</div>
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -1023,8 +1035,8 @@ You ain't getting unbanned if you keep doing shit like that</div>
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -1035,8 +1047,8 @@ You ain't getting unbanned if you keep doing shit like that</div>
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -1047,20 +1059,20 @@ You ain't getting unbanned if you keep doing shit like that</div>
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
                 <span class="chat-timestamp">2026-09-08 13:53:55</span>
               </div>
-              <div class="chat-text"><span class="discord-mention">@User 898188801954955275</span></div>
+              <div class="chat-text"><span class="discord-mention">@noone_here123</span></div>
 
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -1071,8 +1083,8 @@ You ain't getting unbanned if you keep doing shit like that</div>
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -1083,8 +1095,8 @@ You ain't getting unbanned if you keep doing shit like that</div>
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -1095,8 +1107,8 @@ You ain't getting unbanned if you keep doing shit like that</div>
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -1107,8 +1119,8 @@ You ain't getting unbanned if you keep doing shit like that</div>
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -1119,8 +1131,8 @@ You ain't getting unbanned if you keep doing shit like that</div>
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -1131,8 +1143,8 @@ You ain't getting unbanned if you keep doing shit like that</div>
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -1143,8 +1155,8 @@ You ain't getting unbanned if you keep doing shit like that</div>
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -1155,8 +1167,8 @@ You ain't getting unbanned if you keep doing shit like that</div>
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -1167,8 +1179,8 @@ You ain't getting unbanned if you keep doing shit like that</div>
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -1179,8 +1191,8 @@ You ain't getting unbanned if you keep doing shit like that</div>
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -1191,8 +1203,8 @@ You ain't getting unbanned if you keep doing shit like that</div>
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -1203,8 +1215,8 @@ You ain't getting unbanned if you keep doing shit like that</div>
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -1215,8 +1227,8 @@ You ain't getting unbanned if you keep doing shit like that</div>
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -1227,8 +1239,8 @@ You ain't getting unbanned if you keep doing shit like that</div>
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/840946058254352384/a70c8536c5dd2c67f8a842d769186561.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Plasm</span>
@@ -1241,8 +1253,8 @@ Out of all the things you *could’ve* called him, you choose a slur. Why not so
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/840946058254352384/a70c8536c5dd2c67f8a842d769186561.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Plasm</span>
@@ -1253,8 +1265,8 @@ Out of all the things you *could’ve* called him, you choose a slur. Why not so
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -1265,8 +1277,8 @@ Out of all the things you *could’ve* called him, you choose a slur. Why not so
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -1277,8 +1289,8 @@ Out of all the things you *could’ve* called him, you choose a slur. Why not so
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -1289,8 +1301,8 @@ Out of all the things you *could’ve* called him, you choose a slur. Why not so
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -1301,8 +1313,8 @@ Out of all the things you *could’ve* called him, you choose a slur. Why not so
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -1313,8 +1325,8 @@ Out of all the things you *could’ve* called him, you choose a slur. Why not so
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/840946058254352384/a70c8536c5dd2c67f8a842d769186561.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Plasm</span>
@@ -1325,8 +1337,8 @@ Out of all the things you *could’ve* called him, you choose a slur. Why not so
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -1337,8 +1349,8 @@ Out of all the things you *could’ve* called him, you choose a slur. Why not so
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -1349,8 +1361,8 @@ Out of all the things you *could’ve* called him, you choose a slur. Why not so
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -1361,8 +1373,8 @@ Out of all the things you *could’ve* called him, you choose a slur. Why not so
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -1373,8 +1385,8 @@ Out of all the things you *could’ve* called him, you choose a slur. Why not so
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -1385,8 +1397,8 @@ Out of all the things you *could’ve* called him, you choose a slur. Why not so
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/840946058254352384/a70c8536c5dd2c67f8a842d769186561.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Plasm</span>
@@ -1397,8 +1409,8 @@ Out of all the things you *could’ve* called him, you choose a slur. Why not so
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -1409,8 +1421,8 @@ Out of all the things you *could’ve* called him, you choose a slur. Why not so
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -1421,8 +1433,8 @@ Out of all the things you *could’ve* called him, you choose a slur. Why not so
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -1433,20 +1445,20 @@ Out of all the things you *could’ve* called him, you choose a slur. Why not so
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
                 <span class="chat-timestamp">2026-09-09 13:37:23</span>
               </div>
-              <div class="chat-text"><span class="discord-mention">@User 898188801954955275</span></div>
+              <div class="chat-text"><span class="discord-mention">@noone_here123</span></div>
 
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/898188801954955275/cf912dc9cada0c319d2406c7e97edd77.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Noone</span>
@@ -1457,8 +1469,8 @@ Out of all the things you *could’ve* called him, you choose a slur. Why not so
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -1469,8 +1481,8 @@ Out of all the things you *could’ve* called him, you choose a slur. Why not so
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/758779801648889896/96a34ef28bdf41c36e9650d0f7eecb95.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">archnexus()</span>
@@ -1489,8 +1501,8 @@ get blacklisted forever</div>
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/758779801648889896/96a34ef28bdf41c36e9650d0f7eecb95.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">archnexus()</span>
@@ -1501,8 +1513,8 @@ get blacklisted forever</div>
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/embed/avatars/1.png" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">chas</span>
@@ -1513,8 +1525,8 @@ get blacklisted forever</div>
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -1525,8 +1537,8 @@ get blacklisted forever</div>
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -1537,8 +1549,8 @@ get blacklisted forever</div>
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1304067793318182955/87db07541553ec0e64c40d55c467cb8b.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">Super sigma</span>
@@ -1549,8 +1561,8 @@ get blacklisted forever</div>
             </div>
           </div>
 
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+          <div class="chat-message" style="animation-delay: 2.0s;">
+            <img class="chat-avatar" src="https://cdn.discordapp.com/embed/avatars/1.png" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">chas</span>
@@ -1559,18 +1571,6 @@ get blacklisted forever</div>
               <div class="chat-text">@here
 
 Closable, appealing user left.</div>
-
-            </div>
-          </div>
-
-          <div class="chat-message">
-            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
-            <div class="chat-content">
-              <div class="chat-header">
-                <span class="chat-username">WPCO Virtual Assistant</span>
-                <span class="chat-timestamp">2026-09-11 06:54:08</span>
-              </div>
-              <div class="chat-text"></div>
 
             </div>
           </div>
