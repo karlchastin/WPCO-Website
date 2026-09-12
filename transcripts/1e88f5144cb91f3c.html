@@ -12,100 +12,162 @@
   <link rel="stylesheet" href="../style.css" />
   <link rel="stylesheet" href="../dashboard.css" />
   <style>
+    /* Force scrolling overrides */
+    html, body {
+        overflow: auto !important;
+        overflow-y: auto !important;
+        height: auto !important;
+        min-height: 100vh;
+        background-color: #030712;
+        background-image: 
+          radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.12), transparent 25%),
+          radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.12), transparent 25%);
+        background-attachment: fixed;
+    }
+    
+    main {
+        height: auto !important;
+        min-height: 100vh;
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+        display: block !important;
+    }
+    
+    .dashboard-container {
+        height: auto !important;
+        overflow: visible !important;
+    }
+
     .transcript-container {
       max-width: 900px;
       margin: 0 auto;
       padding: 2rem;
       color: #fff;
     }
+    
+    /* Premium Aesthetic */
     .ticket-header {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 1.5rem;
-      margin-bottom: 2rem;
+      background: var(--surface-1, rgba(15, 23, 42, 0.65));
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--glass-border-light, rgba(255, 255, 255, 0.15));
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5), 0 0 15px rgba(58, 134, 255, 0.1);
     }
     .ticket-header h1 {
-      margin: 0 0 0.5rem 0;
-      font-size: 1.8rem;
+      margin: 0 0 1rem 0;
+      font-size: 2rem;
+      background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -0.02em;
     }
     .ticket-meta {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1rem;
-      margin-top: 1rem;
-      color: var(--text-secondary);
-      font-size: 0.9rem;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+      color: var(--text-muted, #94a3b8);
+      font-size: 0.95rem;
+      border-top: 1px solid rgba(255,255,255,0.05);
+      padding-top: 1.5rem;
     }
     
     .chat-log {
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
+      gap: 1.25rem;
     }
     .chat-message {
       display: flex;
-      gap: 1rem;
+      gap: 1.25rem;
+      background: rgba(30, 41, 59, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 1.25rem;
+      border-radius: 12px;
+      transition: all 0.2s ease;
+    }
+    .chat-message:hover {
+      background: rgba(30, 41, 59, 0.6);
+      border-color: rgba(255, 255, 255, 0.1);
     }
     .chat-avatar {
       width: 48px;
       height: 48px;
       border-radius: 50%;
       object-fit: cover;
-      background: var(--bg-surface);
+      background: #0f172a;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      border: 2px solid rgba(255,255,255,0.05);
     }
     .chat-content {
       flex: 1;
+      min-width: 0; /* allows word break */
     }
     .chat-header {
       display: flex;
       align-items: baseline;
       gap: 0.75rem;
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.5rem;
     }
     .chat-username {
       font-weight: 600;
-      color: #fff;
+      color: var(--accent-neon, #60a5fa);
+      font-size: 1.05rem;
     }
     .chat-timestamp {
       font-size: 0.8rem;
-      color: var(--text-secondary);
+      color: var(--text-muted, #94a3b8);
     }
     .chat-text {
-      line-height: 1.5;
-      color: #ddd;
+      line-height: 1.6;
+      color: #e2e8f0;
       white-space: pre-wrap;
       word-break: break-word;
+      font-size: 0.95rem;
+    }
+    
+    .discord-mention {
+        background: rgba(58, 134, 255, 0.2);
+        color: #93c5fd;
+        padding: 0px 4px;
+        border-radius: 4px;
+        font-weight: 500;
     }
     
     .attachment-preview {
-      max-width: 300px;
-      max-height: 300px;
+      max-width: 100%;
+      max-height: 400px;
       border-radius: 8px;
-      margin-top: 0.5rem;
-      border: 1px solid var(--border-color);
+      margin-top: 0.75rem;
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
     .attachment-link {
-      display: inline-block;
-      margin-top: 0.5rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-top: 0.75rem;
       padding: 0.5rem 1rem;
-      background: var(--bg-surface);
-      border: 1px solid var(--border-color);
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(255,255,255,0.1);
       border-radius: 6px;
-      color: var(--primary-color);
+      color: var(--accent-neon, #60a5fa);
       text-decoration: none;
       font-size: 0.85rem;
       transition: all 0.2s;
     }
     .attachment-link:hover {
-      background: var(--primary-color);
+      background: var(--accent, #3a86ff);
       color: #fff;
     }
   </style>
 </head>
 <body>
-  <!-- WebGL Background -->
-  <canvas id="topo-bg"></canvas>
+  <!-- WebGL Background (Modified to scroll with page or fixed) -->
+  <canvas id="topo-bg" style="position: fixed; top: 0; left: 0; z-index: -1;"></canvas>
 
   <main>
     <div class="dashboard-container" style="margin-left: 0;">
@@ -113,24 +175,25 @@
         
         <div class="ticket-header">
           <h1>Ticket #6 - Appeal</h1>
-          <div class="ticket-meta">
-            <div><strong>Creator ID:</strong> 751049879630905345</div>
-            <div><strong>Created:</strong> 2026-09-09 14:55:41</div>
-            <div><strong>Closed:</strong> 2026-09-09 16:33:49</div>
-            <div><strong>Closed By:</strong> 330950042863271936</div>
-          </div>
-          <div style="margin-top: 1rem; color: var(--text-secondary);">
+          <div style="color: #cbd5e1; font-size: 1.05rem;">
             <strong>Reason:</strong> testing
           </div>
-          <div style="margin-top: 0.5rem; color: var(--text-secondary);">
+          <div style="margin-top: 0.5rem; color: #cbd5e1; font-size: 1.05rem;">
             <strong>Close Reason:</strong> Outcome: Granted
+          </div>
+          
+          <div class="ticket-meta">
+            <div><strong>Creator ID:</strong><br/>751049879630905345</div>
+            <div><strong>Created:</strong><br/>2026-09-09 14:55:41</div>
+            <div><strong>Closed:</strong><br/>2026-09-09 16:33:49</div>
+            <div><strong>Closed By:</strong><br/>330950042863271936</div>
           </div>
         </div>
         
         <div class="chat-log">
 
           <div class="chat-message">
-            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1540845780808769626/9eeb275aede2fcb9e8de457a8a076630.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">WPCO Virtual Assistant</span>
@@ -142,19 +205,19 @@
           </div>
 
           <div class="chat-message">
-            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/751049879630905345/80e0b720a11c05a493d956a5f4d3bd6c.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">catamapp</span>
                 <span class="chat-timestamp">2026-09-09 14:55:52</span>
               </div>
-              <div class="chat-text">&lt;@330950042863271936&gt;</div>
+              <div class="chat-text"><span class="discord-mention">@karlchastin</span></div>
 
             </div>
           </div>
 
           <div class="chat-message">
-            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1540845780808769626/9eeb275aede2fcb9e8de457a8a076630.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">WPCO Virtual Assistant</span>
@@ -166,7 +229,7 @@
           </div>
 
           <div class="chat-message">
-            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1540845780808769626/9eeb275aede2fcb9e8de457a8a076630.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">WPCO Virtual Assistant</span>
@@ -178,7 +241,7 @@
           </div>
 
           <div class="chat-message">
-            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1540845780808769626/9eeb275aede2fcb9e8de457a8a076630.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">WPCO Virtual Assistant</span>
@@ -190,7 +253,7 @@
           </div>
 
           <div class="chat-message">
-            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1540845780808769626/9eeb275aede2fcb9e8de457a8a076630.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">WPCO Virtual Assistant</span>
@@ -202,7 +265,7 @@
           </div>
 
           <div class="chat-message">
-            <img class="chat-avatar" src="https://cdn.discordapp.com/avatars/1540845780808769626/9eeb275aede2fcb9e8de457a8a076630.png?size=1024" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
+            <img class="chat-avatar" src="../assets/logo.webp" onerror="this.src='../assets/logo.webp'" alt="Avatar" />
             <div class="chat-content">
               <div class="chat-header">
                 <span class="chat-username">WPCO Virtual Assistant</span>
@@ -219,7 +282,7 @@
   </main>
   
   <script>
-    document.body.style.background = "#050d17";
+    document.body.style.background = "#020617";
   </script>
 </body>
 </html>
